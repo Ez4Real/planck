@@ -21,11 +21,15 @@ export const system = createSystem(defaultConfig, {
     tokens: {
       fonts: {
         heading: { value: "Lexend Exa, sans-serif" },
+        input: { value: "Space Grotesk, sans-serif" },
       },
       colors: {
         ui: {
           main: { value: "#009688" },
           muted: { value: "#4E4E4E" },
+          dark: {value: "#131313"},
+          light: { value: "#F5F5F5" },
+          white: { value: "#ffffff" },
         },
       },
     },
