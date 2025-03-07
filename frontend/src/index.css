@@ -6,11 +6,6 @@ body {
     font-size: 1rem;
 }
 
-#root {
-    white-space: pre-line;
-    overflow: hidden;
-}
-
 
 /* Global Scrollbar styles */
 ::-webkit-scrollbar {

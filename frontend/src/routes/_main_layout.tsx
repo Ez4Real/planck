@@ -7,7 +7,6 @@ export const Route = createFileRoute("/_main_layout")({
 })
 
 function MainLayout() {
-
   return (
     // <div className="main-layout">
     <>

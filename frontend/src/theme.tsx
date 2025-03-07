@@ -16,6 +16,11 @@ export const system = createSystem(defaultConfig, {
       color: "ui.main",
       fontWeight: "bold",
     },
+    ".privacy-policy-text": {
+      color: "ui.muted",
+      lineHeight: "20px",
+      mt: "16px",
+    }
   },
   theme: {
     tokens: {
@@ -26,6 +31,8 @@ export const system = createSystem(defaultConfig, {
         ui: {
           main: { value: "#009688" },
           muted: { value: "#4E4E4E" },
+          dark: { value: "#131313" },
+          light: { value: "#F5F5F5" },
         },
       },
     },
