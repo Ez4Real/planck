@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, File
 from sqlmodel import func, select
 
 from app.core.config import settings
-from app.api.deps import CurrentUser, UserOrNone, SessionDep
+from app.api.deps import CurrentUser, SessionDep
 from app.models import Product, ProductCreate, ProductUpdate, ProductPublic, ProductsPublic, Message
 from app.utils import save_image_to_local, delete_image_from_local
 

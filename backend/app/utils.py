@@ -12,6 +12,9 @@ import jwt
 from jinja2 import Template
 from jwt.exceptions import InvalidTokenError
 
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut
+
 from app.core import security
 from app.core.config import settings
 
@@ -160,3 +163,13 @@ def delete_image_from_local(image_path: str, upload_dir: Path) -> bool:
         image_path.unlink()
         return True
     return False
+
+def get_user_location_by_coordinates(
+      latitude: float, longitude: float
+    ) -> str | None:
+    """
+    Returns user location by coordinates (latitude / longitude)
+    """
+    geolocator = Nominatim(user_agent=settings.PROJECT_NAME)
+    location = geolocator.reverse((latitude, longitude))
+    return location.address if location else None

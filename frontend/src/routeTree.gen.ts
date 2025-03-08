@@ -15,12 +15,14 @@ import { Route as MainlayoutImport } from './routes/_main_layout'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as AuthlayoutImport } from './routes/_auth_layout'
 import { Route as MainlayoutIndexImport } from './routes/_main_layout/index'
+import { Route as MainlayoutPrivacyPolicyImport } from './routes/_main_layout/privacy-policy'
 import { Route as AuthlayoutSignupImport } from './routes/_auth_layout/signup'
 import { Route as AuthlayoutResetPasswordImport } from './routes/_auth_layout/reset-password'
 import { Route as AuthlayoutRecoverPasswordImport } from './routes/_auth_layout/recover-password'
 import { Route as AuthlayoutLoginImport } from './routes/_auth_layout/login'
 import { Route as LayoutAdminIndexImport } from './routes/_layout/admin/index'
 import { Route as LayoutAdminUsersImport } from './routes/_layout/admin/users'
+import { Route as LayoutAdminSubscribersImport } from './routes/_layout/admin/subscribers'
 import { Route as LayoutAdminSettingsImport } from './routes/_layout/admin/settings'
 import { Route as LayoutAdminProductsImport } from './routes/_layout/admin/products'
 
@@ -43,6 +45,11 @@ const AuthlayoutRoute = AuthlayoutImport.update({
 
 const MainlayoutIndexRoute = MainlayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => MainlayoutRoute,
+} as any)
+
+const MainlayoutPrivacyPolicyRoute = MainlayoutPrivacyPolicyImport.update({
+  path: '/privacy-policy',
   getParentRoute: () => MainlayoutRoute,
 } as any)
 
@@ -73,6 +80,11 @@ const LayoutAdminIndexRoute = LayoutAdminIndexImport.update({
 
 const LayoutAdminUsersRoute = LayoutAdminUsersImport.update({
   path: '/admin/users',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutAdminSubscribersRoute = LayoutAdminSubscribersImport.update({
+  path: '/admin/subscribers',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -118,6 +130,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthlayoutSignupImport
       parentRoute: typeof AuthlayoutImport
     }
+    '/_main_layout/privacy-policy': {
+      preLoaderRoute: typeof MainlayoutPrivacyPolicyImport
+      parentRoute: typeof MainlayoutImport
+    }
     '/_main_layout/': {
       preLoaderRoute: typeof MainlayoutIndexImport
       parentRoute: typeof MainlayoutImport
@@ -128,6 +144,10 @@ declare module '@tanstack/react-router' {
     }
     '/_layout/admin/settings': {
       preLoaderRoute: typeof LayoutAdminSettingsImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/admin/subscribers': {
+      preLoaderRoute: typeof LayoutAdminSubscribersImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/admin/users': {
@@ -153,10 +173,14 @@ export const routeTree = rootRoute.addChildren([
   LayoutRoute.addChildren([
     LayoutAdminProductsRoute,
     LayoutAdminSettingsRoute,
+    LayoutAdminSubscribersRoute,
     LayoutAdminUsersRoute,
     LayoutAdminIndexRoute,
   ]),
-  MainlayoutRoute.addChildren([MainlayoutIndexRoute]),
+  MainlayoutRoute.addChildren([
+    MainlayoutPrivacyPolicyRoute,
+    MainlayoutIndexRoute,
+  ]),
 ])
 
 /* prettier-ignore-end */

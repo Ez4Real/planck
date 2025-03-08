@@ -17,6 +17,18 @@ export const buttonRecipe = defineRecipe({
           bg: "gray.100",
         },
       },
+      plain: {
+        color: "ui.light",
+        bg: "ui.dark",
+        fontSize: "16px",
+        fontWeight: "500",
+        transition: ".6s",
+        borderRadius: "4px",
+        _hover: {
+          color: "ui.dark",
+          bg: "ui.light",
+        },
+      },
     },
   },
 })

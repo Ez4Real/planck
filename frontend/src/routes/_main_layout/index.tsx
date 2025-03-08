@@ -1,13 +1,37 @@
 import { Box, Button, Container, Flex, Text, HStack, Input, Field } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
-
+import { useState } from "react";
 
 export const Route = createFileRoute("/_main_layout/")({
   component: Main,
 })
 
+interface Coordinates {
+  latitude: number;
+  longitude: number;
+}
 
 function Main() {
+  const [location, setLocation] = useState<Coordinates | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(latitude, longitude);
+          
+        },
+        (err) => {
+          setError(err.message);
+        }
+      );
+    } else {
+      setError('Geolocation is not supported by this browser.');
+    }
+  };
 
   return (
     <Container
@@ -32,7 +56,8 @@ function Main() {
         p="48px"
       >
         <Button
-          colorScheme="black"
+          onClick={getUserLocation}
+          variant="plain"
           p="8px 18px"
         >Join Waitlist</Button>
       </Flex>

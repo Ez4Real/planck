@@ -135,7 +135,12 @@ function ProductsTable() {
 function Products() {
   return (
     <Container maxW="full">
-      <Heading size="lg" pt={12}>
+      <Heading
+        size="lg"
+        pt={2}
+        pb={4}
+        pl={[10, 0]}
+      >
         Products Management
       </Heading>
       <AddProduct />
