@@ -19,7 +19,8 @@ import { useColorModeValue } from "../ui/color-mode"
           <Image
             src={logo}
             h="84px"
-            mx="auto"
+            height={["48px", "48px", "84px", "84px",]}
+            m="0 auto"
           />
         </Box>
       </>

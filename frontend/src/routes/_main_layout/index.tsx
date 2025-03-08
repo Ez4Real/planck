@@ -1,4 +1,4 @@
-import { Box, Button, Container, Flex, Heading, Separator, Text, HStack, Input, Field } from "@chakra-ui/react"
+import { Box, Button, Container, Flex, Text, HStack, Input, Field } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 
 
@@ -11,7 +11,7 @@ function Main() {
 
   return (
     <Container
-      p="0 54px"
+      p={["0 21px", "0 21px", "0 21px", "0 54px"]}
     >
       <Text
         as="h1"
@@ -38,110 +38,136 @@ function Main() {
       </Flex>
 
       <Box
-        p="31px 40px 55px"
-        m="120px 0"
+        p={["16px 0", "16px 0", "16px 0", "31px 40px 55px"]}
+        m={["101px 0", "120px 0"]}
         border="1px solid #4E4E4E"
+        borderColor={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
         borderRadius="8px"
+        boxShadow="4px 8px 9px rgba(0, 0, 0, 0.05)"
       >
         <Text
+          fontSize={["32px", "32px", "58px", "58px"]}
+          mb={["16px", "16px", "16px", "33px"]}
           as="h2"
           color="ui.dark"
-          fontSize="58px"
           fontWeight="500"
           textAlign="center"
-          mb="33px"
-        >Magical. Yet Practical.</Text>
+        >Magical. <Box display={["block", "block", "none", "none"]}/> Yet Practical.</Text>
 
-        <HStack gap="0">
+        <HStack
+          wrap={["wrap", "wrap", "wrap", "nowrap"]}
+          gap="0"
+        >
           <Flex
             direction="column"
             gap="0"
             h="100%"
+            w="100%"
           >
             <Text
+              fontSize={["24px", "24px", "36px"]}
+              mb={["8px", "8px", "8px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
               color="ui.dark"
-              fontSize="36px"
               fontWeight="500"
-              mb="16px"
               textIndent="5px"
-              lineHeight="45px"
+              lineHeight={["", "", "45px"]}
             >
               Intuitive
             </Text>
             <Text
               color="ui.muted"
+              fontSize={["12px", "12px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
             >
               No learning curve. Ask questions in your own words and receive clear answers instantly.
             </Text>
 
-            <Separator
-              m="32px 0"
+            <Box
+              background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+              w="100%"
+              h="1px"
+              m={["16px 0", "16px 0", "16px 0", "32px 0"]}
             >
-            </Separator>
+            </Box>
 
             <Text
+              fontSize={["24px", "24px", "36px"]}
+              mb={["8px", "8px", "8px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
               color="ui.dark"
-              fontSize="36px"
               fontWeight="500"
-              mb="16px"
               textIndent="5px"
-              lineHeight="45px"
+              lineHeight={["", "", "45px"]}
             >
               Private
             </Text>
 
             <Text
               color="ui.muted"
+              fontSize={["12px", "12px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
             >
               Built with privacy at its core. Self-hosted and secure, your data never leaves your control.
             </Text>
 
           </Flex>
 
-          <Separator
-            orientation="vertical"
-            m="0 57px"
-            height="282px"
+          <Box
+            background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+            w={["100%", "100%", "100%", "1px"]}
+            h={["1px", "1px", "1px", "282px"]}
+            m={["16px 0", "16px 0", "16px 0", "0 57px"]}
           />
           <Flex
             direction="column"
+            w="100%"
           >
 
             <Text
+              fontSize={["24px", "24px", "36px"]}
+              mb={["8px", "8px", "8px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
               color="ui.dark"
-              fontSize="36px"
               fontWeight="500"
-              lineHeight="45px"
-              mb="16px"
               textIndent="5px"
+              lineHeight={["", "", "45px"]}
             >
               Comprehensive
             </Text>
 
             <Text
               color="ui.muted"
+              fontSize={["12px", "12px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
             >
               Works with spreadsheets, PDFs, Word documents, and various business tools.
             </Text>
 
-            <Separator
-              m="32px 0"
+            <Box
+              background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+              w="100%"
+              h="1px"
+              m={["16px 0", "16px 0", "16px 0", "32px 0"]}
             >
-            </Separator>
+            </Box>
 
             <Text
+              fontSize={["24px", "24px", "36px"]}
+              mb={["8px", "8px", "8px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
               color="ui.dark"
-              fontSize="36px"
               fontWeight="500"
-              lineHeight="45px"
-              mb="16px"
               textIndent="5px"
+              lineHeight={["", "", "45px"]}
             >
               Intelligent
             </Text>
 
             <Text
               color="ui.muted"
+              fontSize={["12px", "12px", "16px"]}
+              p={["0 11px", "0 11px", "0 11px", "0"]}
             >
               Understands context and relationships, revealing not just what happened, but why.
             </Text>
@@ -156,8 +182,8 @@ function Main() {
         <Box
           pt="18px"
           pb="17px"
-          mb="120px"
-          fontSize="58px"
+          mb={["101px", "101px", "120px", "120px",]}
+          fontSize={["32px", "32px", "58px"]}
           fontWeight="500"
           color="ui.light"
           bg="ui.dark"
@@ -174,15 +200,15 @@ function Main() {
             background: "ui.dark",
             zIndex: "-1",
           }}
-        >Your Data. Your Control.</Box>
+        >Your Data. <Box display={["block", "block", "none", "none"]}/> Your Control.</Box>
       </Box>
 
       <Box
-        pb="160px"
+        pb={["100px", "100px", "160px", "160px",]}
       >
         <Text
           color="ui.dark"
-          fontSize="58px"
+          fontSize={["32px", "32px", "58px"]}
           fontWeight="500"
           textAlign="center"
         >NOW INVITING BETA USERS
@@ -191,12 +217,13 @@ function Main() {
         <Text
           color="ui.muted"
           textAlign="center"
-          mt="28px"
-          mb="63px"
+          mt={["12px", "12px", "28px"]}
+          mb={["44px", "44px", "63px"]}
+          fontSize={["12px", "12px", "20px"]}
         >
-          Everything on your device: your data, your AI,<br />
-          your insights. Create a secure, personal knowledge<br />
-          hub with your most sensitive information.
+          Everything on your device: your data, your AI, <Box display={["block"]}/>
+          your insights. Create a secure, personal knowledge <Box display={["none", "block", "none", "block"]}/>
+          hub with your most sensitive <Box display={["block", "block", "none", "none"]}/> information.
         </Text>
 
         <Flex
@@ -204,14 +231,14 @@ function Main() {
           gap="4"
         >
           <Field.Root
-            w="275px"
+            w={["246px", "246px", "275px"]}
           >
             <Input
               placeholder="Enter your email"
               color="ui.muted"
               fontSize="14px"
               fontFamily="input"
-              h="36px"
+              h={["32px", "32px", "36px"]}
               borderColor="ui.muted"
             />
           </Field.Root>
