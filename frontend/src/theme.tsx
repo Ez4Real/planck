@@ -33,6 +33,7 @@ export const system = createSystem(defaultConfig, {
           muted: { value: "#4E4E4E" },
           dark: { value: "#131313" },
           light: { value: "#F5F5F5" },
+          steel: { value: "#A0AEC0" },
         },
       },
     },

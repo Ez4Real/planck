@@ -117,7 +117,12 @@ function UsersTable() {
 function Users() {
   return (
     <Container maxW="full">
-      <Heading size="lg" pt={12}>
+      <Heading
+        size="lg"
+        pt={2}
+        pb={4}
+        pl={[10, 0]}
+      >
         Users Management
       </Heading>
 

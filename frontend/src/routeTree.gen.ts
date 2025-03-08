@@ -22,6 +22,7 @@ import { Route as AuthlayoutRecoverPasswordImport } from './routes/_auth_layout/
 import { Route as AuthlayoutLoginImport } from './routes/_auth_layout/login'
 import { Route as LayoutAdminIndexImport } from './routes/_layout/admin/index'
 import { Route as LayoutAdminUsersImport } from './routes/_layout/admin/users'
+import { Route as LayoutAdminSubscribersImport } from './routes/_layout/admin/subscribers'
 import { Route as LayoutAdminSettingsImport } from './routes/_layout/admin/settings'
 import { Route as LayoutAdminProductsImport } from './routes/_layout/admin/products'
 
@@ -79,6 +80,11 @@ const LayoutAdminIndexRoute = LayoutAdminIndexImport.update({
 
 const LayoutAdminUsersRoute = LayoutAdminUsersImport.update({
   path: '/admin/users',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutAdminSubscribersRoute = LayoutAdminSubscribersImport.update({
+  path: '/admin/subscribers',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -140,6 +146,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutAdminSettingsImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/admin/subscribers': {
+      preLoaderRoute: typeof LayoutAdminSubscribersImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/admin/users': {
       preLoaderRoute: typeof LayoutAdminUsersImport
       parentRoute: typeof LayoutImport
@@ -163,6 +173,7 @@ export const routeTree = rootRoute.addChildren([
   LayoutRoute.addChildren([
     LayoutAdminProductsRoute,
     LayoutAdminSettingsRoute,
+    LayoutAdminSubscribersRoute,
     LayoutAdminUsersRoute,
     LayoutAdminIndexRoute,
   ]),

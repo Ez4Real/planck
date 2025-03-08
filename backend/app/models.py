@@ -1,5 +1,5 @@
 import uuid
-
+from datetime import datetime, timezone
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
 
@@ -77,6 +77,29 @@ class ProductPublic(ProductBase):
 
 class ProductsPublic(SQLModel):
     data: list[ProductPublic]
+    count: int
+
+
+class UserCoordinates(SQLModel):
+    latitude: float
+    longitude: float
+    
+class SubscriberBase(SQLModel):
+    email: EmailStr = Field(unique=True, index=True, max_length=255)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    location: str | None = Field(nullable=True, max_length=255)
+
+class SubscriberCreate(SubscriberBase):
+    pass
+
+class Subscriber(SubscriberBase, table=True):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+
+class SubscriberPublic(SubscriberBase):
+    id: uuid.UUID
+
+class SubscribersPublic(SQLModel):
+    data: list[SubscriberPublic]
     count: int
 
 
