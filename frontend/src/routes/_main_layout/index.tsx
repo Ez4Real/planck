@@ -320,7 +320,7 @@ function Main() {
               <Portal>
                 <Dialog.Backdrop />
                 
-                <Dialog.Positioner>
+                <Dialog.Positioner display="flex" alignItems="center" justifyContent="center">
                   <Dialog.Content
                     p={["25px", "40px", "40px", "40px"]}
                   >
