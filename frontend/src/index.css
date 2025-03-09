@@ -8,6 +8,11 @@ body {
 
 
 /* Global Scrollbar styles */
+
+#root {
+    overflow-x: hidden;
+}
+
 ::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;

@@ -1,4 +1,5 @@
 import { Box, Container, Flex, Image, Link } from "@chakra-ui/react"
+import { Link as RouterLink } from "@tanstack/react-router"
 import { useColorModeValue } from "../ui/color-mode"
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
     return (
         <>
             <Container
-                p={["0 21px 66px", "0 21px 66px", "0 64px 96px", "0 64px 96px",]}
+                p={["100px 21px 66px", "100px 21px 66px", "160px 64px 96px", "160px 64px 96px",]}
             >
                 <Flex
                     justifyContent="space-between"
@@ -28,55 +29,58 @@ const Footer = () => {
                             mb={["8px", "8px", "4px", "4px",]}
                             objectFit="contain"
                         />
-                        <Link
-                            href="/privacy-policy"
-                            fontSize="14px"
-                            color="ui.muted"
-                            fontWeight="400"
-                        >
-                            Privacy Policy
-                        </Link>
 
-                        <Link
-                            href="/terms-service"
-                            fontSize="14px"
-                            color="ui.muted"
-                            fontWeight="400"
-                        >
-                            Terms of Service
-                        </Link>
+                        <RouterLink
+                            className="link-footer"
+                            to="/privacy-policy"
+                            hash="root"
+                        >Privacy Policy
+                        </RouterLink>
+
+                        {/* <RouterLink
+                            className="link-footer"
+                            to="/terms-of-service"
+                            
+                        >Terms of Service
+                        </RouterLink> */}
 
                     </Flex>
 
                     <Box
                         display="inline-flex"
                         border="1px solid #4E4E4E"
-                        borderRadius="6px"
+                        borderRadius={["4px", "6px", "6px",]}
                         mt="13px"
-                        w={["60px", "96px", "96px",]}
+                        w={["62px", "96px", "96px",]}
                         h={["24px", "38px", "38px",]}
                     >
-                        <Box>
+                        <Box
+                            w={["31px", "48px", "48px",]}
+                            h={["24px", "38px", "38px",]}
+                        >
                             <Image
                                 src={icons.moon}
-                                w={["29px", "48px", "48px",]}
+                                w={["31px", "48px", "48px",]}
+                                h={["22px", "36px", "36px",]}
+                                borderRadius={["4px", "6px", "6px",]}
                                 opacity="50%"
-                                p={["4.52px 7.75px", "7px 12px", "7px 12px",]}
-                                
+                                p={["4px 8px", "7px 12px", "7px 12px",]}
+
                             />
                         </Box>
 
                         <Box
-                            
+                            w={["31px", "48px", "48px",]}
+                            h={["24px", "38px", "38px",]}
                         >
                             <Image
                                 src={icons.sun}
-                                w={["29px", "48px", "48px",]}
-                                borderRadius="6px"
+                                w={["31px", "48px", "48px",]}
+                                h={["22px", "36px", "36px"]}
+                                borderRadius={["4px", "6px", "6px",]}
                                 borderLeft="1px solid #4E4E4E"
-                                p={["4.52px 7.75px", "7px 12px", "7px 12px",]}
+                                p={["4px 8px", "7px 12px", "7px 12px",]}
                                 background="#CACACA"
-                                
                             />
                         </Box>
                     </Box>

@@ -14,11 +14,15 @@ export const PrivacyPolicyItem = ({
   return (
     <Box mt="42px">
       <Text
-        fontSize="20px"
         fontWeight="600"
+        fontSize={["16px", "20px", "20px", "20px"]}
+        lineHeight={["15px", "20px", "20px", "20px"]}
+        mb={["12px", "16px", "16px", "16px"]}
       >{number}. {title}</Text>
       <Text
-        className="privacy-policy-text"
+        color="ui.muted"
+        fontSize={["12px", "16px", "16px", "16px"]}
+        lineHeight={["15px", "20px", "20px", "20px"]}
         whiteSpace="pre-line" 
       >{description}</Text>
     </Box>

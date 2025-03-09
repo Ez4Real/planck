@@ -21,9 +21,8 @@ import { useMemo } from "react"
         >
           <Image
             src={logo}
-            h="84px"
-            height={["48px", "48px", "84px", "84px",]}
-            m="0 auto"
+            h={isHomepage ? "84px" : "29px"}
+            mx={isHomepage ? "auto" : 0}
           />
         </Box>
       </>

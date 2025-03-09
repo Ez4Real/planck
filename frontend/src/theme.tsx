@@ -16,11 +16,11 @@ export const system = createSystem(defaultConfig, {
       color: "ui.main",
       fontWeight: "bold",
     },
-    ".privacy-policy-text": {
+    ".link-footer": {
+      fontSize: "14px",
       color: "ui.muted",
-      lineHeight: "20px",
-      mt: "16px",
-    }
+      fontWeight: "400",
+    },
   },
   theme: {
     tokens: {

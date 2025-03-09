@@ -1,4 +1,17 @@
-import { Box, Button, Container, Flex, Text, HStack, Input, Field } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Container,
+  Flex, 
+  Text,
+  HStack,
+  Input,
+  Field,
+  CloseButton,
+  Dialog,
+  For,
+  Portal,
+} from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react";
 
@@ -22,7 +35,7 @@ function Main() {
         (position) => {
           const { latitude, longitude } = position.coords;
           console.log(latitude, longitude);
-          
+
         },
         (err) => {
           setError(err.message);
@@ -36,27 +49,35 @@ function Main() {
   return (
     <Container
       p={["0 21px", "0 21px", "0 21px", "0 54px"]}
+      pt={["54px", "54px", "140px", "140px"]}
     >
       <Text
         as="h1"
         color="ui.dark"
-        fontSize="58px"
+        fontSize={["36px", "58px", "58px"]}
+        lineHeight={["46px", "73px", "73px"]}
         fontWeight="500"
         textAlign="center"
       >Intelligence. Privacy. Simplicity.</Text>
       <Text
         color="ui.muted"
-        fontSize="20px"
+        fontSize={["12px", "20px", "20px"]}
+        lineHeight={["15px", "25px", "25px"]}
         textAlign="center"
-        mt="32px"
-      >A new way to understand your data, designed from the ground up for the way you work. Planck AI transforms how you interact with information. Simply ask questions about your documents and data in natural language. Get immediate insights that matter.
+        mt={["24px", "24px", "32px", "32px"]}
+      >A new way to understand your data, designed from the ground up <Box display={["none", "none", "block", "block"]} />
+        for the way you work. Planck AI transforms how you interact with <Box display={["none", "none", "block", "block"]} />
+        information. Simply ask questions about your documents and data <Box display={["none", "none", "block", "block"]} />
+        in natural language. Get immediate insights that matter.
       </Text>
       <Flex
         justifyContent="center"
-        p="48px"
+        pt={["46px", "46px", "36px", "36px"]}
       >
         <Button
           onClick={getUserLocation}
+          fontSize={["12px", "12px", "16px", "16px"]}
+          h={["31px", "31px", "36px", "36px"]}
           variant="plain"
           p="8px 18px"
         >Join Waitlist</Button>
@@ -73,11 +94,12 @@ function Main() {
         <Text
           fontSize={["32px", "32px", "58px", "58px"]}
           mb={["16px", "16px", "16px", "33px"]}
+          lineHeight={["40px", "40px", "73px"]}
           as="h2"
           color="ui.dark"
           fontWeight="500"
           textAlign="center"
-        >Magical. <Box display={["block", "block", "none", "none"]}/> Yet Practical.</Text>
+        >Magical. <Box display={["block", "block", "none", "none"]} /> Yet Practical.</Text>
 
         <HStack
           wrap={["wrap", "wrap", "wrap", "nowrap"]}
@@ -209,6 +231,7 @@ function Main() {
           pb="17px"
           mb={["101px", "101px", "120px", "120px",]}
           fontSize={["32px", "32px", "58px"]}
+          lineHeight={["40px", "40px", "73px"]}
           fontWeight="500"
           color="ui.light"
           bg="ui.dark"
@@ -225,16 +248,15 @@ function Main() {
             background: "ui.dark",
             zIndex: "-1",
           }}
-        >Your Data. <Box display={["block", "block", "none", "none"]}/> Your Control.</Box>
+        >Your Data. <Box display={["block", "block", "none", "none"]} /> Your Control.</Box>
       </Box>
 
-      <Box
-        pb={["100px", "100px", "160px", "160px",]}
-      >
+      <Box>
         <Text
           color="ui.dark"
           fontSize={["32px", "32px", "58px"]}
           fontWeight="500"
+          lineHeight={["40px", "40px", "73px"]}
           textAlign="center"
         >NOW INVITING BETA USERS
         </Text>
@@ -246,13 +268,14 @@ function Main() {
           mb={["44px", "44px", "63px"]}
           fontSize={["12px", "12px", "20px"]}
         >
-          Everything on your device: your data, your AI, <Box display={["block"]}/>
-          your insights. Create a secure, personal knowledge <Box display={["none", "block", "none", "block"]}/>
-          hub with your most sensitive <Box display={["block", "block", "none", "none"]}/> information.
+          Everything on your device: your data, your AI, <Box display={["block"]} />
+          your insights. Create a secure, personal knowledge <Box display={["none", "block", "none", "block"]} />
+          hub with your most sensitive <Box display={["block", "block", "none", "none"]} /> information.
         </Text>
 
         <Flex
           justifyContent="center"
+          alignItems="center"
           gap="4"
         >
           <Field.Root
@@ -268,14 +291,93 @@ function Main() {
             />
           </Field.Root>
           <Button
-            variant="solid"
-            p="8px 18px"
-          >Join Waitlist
-          </Button>
+            onClick={getUserLocation}
+            variant="plain"
+            fontSize={["12px", "12px", "14px", "14px"]}
+            p={["9px 18px", "9px 18px", "9px 12px", "9px 12px"]}
+            h={["32px", "32px", "36px", "36px"]}
+          >Join Waitlist</Button>
         </Flex>
       </Box>
 
+      <HStack 
+        wrap="wrap" 
+        gap="4"
+        >
+        <For each={["xs"]}>
+          {(size) => (
+            <Dialog.Root
+              key={size}
+              size={size}
+              motionPreset="slide-in-bottom"
+            >
+              <Dialog.Trigger asChild>
 
+                <Button variant="outline">Open Dialog</Button>
+                
+              </Dialog.Trigger>
+
+              <Portal>
+                <Dialog.Backdrop />
+                
+                <Dialog.Positioner>
+                  <Dialog.Content
+                    p={["25px", "40px", "40px", "40px"]}
+                  >
+                    <Dialog.Header
+                      p="0"
+                      pb="16px"
+                    >
+                      <Dialog.Title
+                      >We use cookies</Dialog.Title>
+                    </Dialog.Header>
+
+                    <Dialog.Body
+                      p="0"
+                    >
+                      <p style={{ lineHeight: "20px" }}>
+                        Cookies help us deliver the best experience on our website. 
+                        By using our website, you agree to the use of cookies. <br/> <span style={{ textDecoration: "underline" }}>Find out how we use cookies.</span>
+                      </p>
+                    </Dialog.Body>
+                    <Dialog.Footer
+                      display="flex"
+                      flexDirection="column"
+                      p="0"
+                      mt="30px"
+                    >
+                      <Dialog.ActionTrigger asChild w="100%">
+                        <Button 
+                        variant="outline" 
+                        borderColor="ui.muted"
+                        color="ui.dark"
+                        background="ui.white"
+                        >Yes</Button>
+                      </Dialog.ActionTrigger>
+
+                      <Button
+                        w="100%"
+                        background="ui.dark"
+                        color="ui.white"
+                      >No</Button>
+
+                    </Dialog.Footer>
+
+                    <Dialog.CloseTrigger 
+                      position="absolute"
+                      top="10px"
+                      right="14px"
+                    >
+                      <CloseButton size="sm" color="ui.dark" />
+                    </Dialog.CloseTrigger>
+
+                  </Dialog.Content>
+                </Dialog.Positioner>
+              </Portal>
+            </Dialog.Root>
+          )}
+        </For>
+      </HStack>
 
     </Container>
   )
