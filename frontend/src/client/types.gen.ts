@@ -68,7 +68,7 @@ export type SubscriberCreate = {
 
 export type SubscriberPublic = {
   email: string
-  created_at: string
+  created_at?: string
   location: string | null
   id: string
 }
