@@ -6,14 +6,13 @@ interface PrivacyPolicyListItemProps {
   titleFontSize?: string
   description: string
   points: string[]
-  
 }
 
 export const PrivacyPolicyListItem = ({
-    number,
-    title,
-    description,
-    points
+  number,
+  title,
+  description,
+  points
 }: PrivacyPolicyListItemProps) => {
   return (
     <Box mt="42px">
@@ -24,6 +23,7 @@ export const PrivacyPolicyListItem = ({
         mb="16px"
       >{number}. {title}</Text>
       <Text
+        maxWidth={["365px", "1040px", "1040px", "1040px"]}
         color="ui.muted"
         fontSize={["12px", "16px", "16px", "16px"]}
         lineHeight={["15px", "20px", "20px", "20px"]}
@@ -36,7 +36,11 @@ export const PrivacyPolicyListItem = ({
         marginInlineStart="1.5em"
       >
         {points.map((point, index) => (
-          <List.Item key={index}>{point}</List.Item>
+          <List.Item
+            _marker={{ color: "ui.muted" }} 
+            maxWidth={["365px", "1040px", "1040px", "1040px"]}
+            key={index}>{point}
+          </List.Item>
         ))}
       </List.Root>
     </Box>

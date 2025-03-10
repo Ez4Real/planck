@@ -30,6 +30,7 @@ function PrivacyPolicy() {
         >Effective Date: February 19, 2025</Text>
         <Text
           color="ui.muted"
+          maxWidth={["365px", "1040px", "1040px", "1040px"]}
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt="16px"
@@ -201,6 +202,7 @@ function PrivacyPolicy() {
           >What are Cookies?</Text>
           <Text
             color="ui.muted"
+            maxWidth={["365px", "1040px", "1040px", "1040px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             fontSize={["12px", "16px", "16px", "16px"]}
             mt="12px"
@@ -224,6 +226,7 @@ function PrivacyPolicy() {
           </Text>
           <Text
             color="ui.muted"
+            maxWidth={["365px", "1040px", "1040px", "1040px"]}
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt={["16px", "12px", "12px", "12px"]}
@@ -273,25 +276,31 @@ function PrivacyPolicy() {
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt="16px"
             marginInlineStart="1.5em"
+            listStyleType="disc"
           >
             <List.Item
+              _marker={{ color: "ui.muted" }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >
+              
               UK residents: Lodge complaints with the Information Commissioner’s Office (ICO) at &nbsp;
               <span
                 style={{ textDecoration: "underline"}}>www.ico.org.uk.
               </span>
             </List.Item>
             <List.Item
+              _marker={{ color: "ui.muted" }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >EU residents: File complaints with your local Data Protection Authority (DPA).</List.Item>
             <List.Item
+              _marker={{ color: "ui.muted" }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >Indian residents: Contact the Data Protection Board of India.</List.Item>
             <List.Item
+              _marker={{ color: "ui.muted" }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >California residents: Submit CCPA/CPRA requests via the contact details above.</List.Item>

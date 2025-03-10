@@ -322,7 +322,8 @@ function Main() {
                 
                 <Dialog.Positioner display="flex" alignItems="center" justifyContent="center">
                   <Dialog.Content
-                    p={["25px", "40px", "40px", "40px"]}
+                    p="30px"
+                    maxWidth="320px"
                   >
                     <Dialog.Header
                       p="0"
@@ -337,35 +338,41 @@ function Main() {
                     >
                       <p style={{ lineHeight: "20px" }}>
                         Cookies help us deliver the best experience on our website. 
-                        By using our website, you agree to the use of cookies. <br/> <span style={{ textDecoration: "underline" }}>Find out how we use cookies.</span>
+                        By using our website, you agree to the use of cookies. <span style={{ textDecoration: "underline" }}>Find out how we use cookies.</span>
                       </p>
                     </Dialog.Body>
                     <Dialog.Footer
                       display="flex"
-                      flexDirection="column"
+                      justifyContent="space-between"
                       p="0"
                       mt="30px"
                     >
-                      <Dialog.ActionTrigger asChild w="100%">
+                      <Dialog.ActionTrigger asChild w="47%">
                         <Button 
                         variant="outline" 
                         borderColor="ui.muted"
                         color="ui.dark"
                         background="ui.white"
+                        borderWidth="3px"
+                        borderRadius="initial"
+                        
                         >Yes</Button>
                       </Dialog.ActionTrigger>
 
                       <Button
-                        w="100%"
-                        background="ui.dark"
-                        color="ui.white"
+                        w="47%"
+                        color="ui.dark"
+                        background="ui.white"
+                        borderColor="ui.muted"
+                        borderWidth="3px"
+                        borderRadius="initial"
                       >No</Button>
 
                     </Dialog.Footer>
 
                     <Dialog.CloseTrigger 
                       position="absolute"
-                      top="10px"
+                      top="8px"
                       right="14px"
                     >
                       <CloseButton size="sm" color="ui.dark" />

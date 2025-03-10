@@ -21,6 +21,7 @@ export const PrivacyPolicyItem = ({
       >{number}. {title}</Text>
       <Text
         color="ui.muted"
+        maxWidth={["365px", "1040px", "1040px", "1040px"]}
         fontSize={["12px", "16px", "16px", "16px"]}
         lineHeight={["15px", "20px", "20px", "20px"]}
         whiteSpace="pre-line" 
