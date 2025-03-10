@@ -15,6 +15,7 @@ import { Route as MainlayoutImport } from './routes/_main_layout'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as AuthlayoutImport } from './routes/_auth_layout'
 import { Route as MainlayoutIndexImport } from './routes/_main_layout/index'
+import { Route as MainlayoutTermsOfServiceImport } from './routes/_main_layout/terms-of-service'
 import { Route as MainlayoutPrivacyPolicyImport } from './routes/_main_layout/privacy-policy'
 import { Route as AuthlayoutSignupImport } from './routes/_auth_layout/signup'
 import { Route as AuthlayoutResetPasswordImport } from './routes/_auth_layout/reset-password'
@@ -45,6 +46,11 @@ const AuthlayoutRoute = AuthlayoutImport.update({
 
 const MainlayoutIndexRoute = MainlayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => MainlayoutRoute,
+} as any)
+
+const MainlayoutTermsOfServiceRoute = MainlayoutTermsOfServiceImport.update({
+  path: '/terms-of-service',
   getParentRoute: () => MainlayoutRoute,
 } as any)
 
@@ -134,6 +140,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainlayoutPrivacyPolicyImport
       parentRoute: typeof MainlayoutImport
     }
+    '/_main_layout/terms-of-service': {
+      preLoaderRoute: typeof MainlayoutTermsOfServiceImport
+      parentRoute: typeof MainlayoutImport
+    }
     '/_main_layout/': {
       preLoaderRoute: typeof MainlayoutIndexImport
       parentRoute: typeof MainlayoutImport
@@ -179,6 +189,7 @@ export const routeTree = rootRoute.addChildren([
   ]),
   MainlayoutRoute.addChildren([
     MainlayoutPrivacyPolicyRoute,
+    MainlayoutTermsOfServiceRoute,
     MainlayoutIndexRoute,
   ]),
 ])
