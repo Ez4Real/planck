@@ -16,23 +16,25 @@ export const system = createSystem(defaultConfig, {
       color: "ui.main",
       fontWeight: "bold",
     },
-    ".privacy-policy-text": {
+    ".link-footer": {
+      fontSize: "14px",
       color: "ui.muted",
-      lineHeight: "20px",
-      mt: "16px",
-    }
+      fontWeight: "400",
+    },
   },
   theme: {
     tokens: {
       fonts: {
         heading: { value: "Lexend Exa, sans-serif" },
+        input: { value: "Space Grotesk, sans-serif" },
       },
       colors: {
         ui: {
           main: { value: "#009688" },
           muted: { value: "#4E4E4E" },
-          dark: { value: "#131313" },
+          dark: {value: "#131313"},
           light: { value: "#F5F5F5" },
+          white: { value: "#ffffff" },
           steel: { value: "#A0AEC0" },
         },
       },
