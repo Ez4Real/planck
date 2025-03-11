@@ -2,7 +2,7 @@ import {
   Box,
   Button,
   Container,
-  Flex, 
+  Flex,
   Text,
   HStack,
   Input,
@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react";
+import { Link as RouterLink } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/_main_layout/")({
   component: Main,
@@ -74,7 +75,7 @@ function Main() {
       </Text>
       <Flex
         justifyContent="center"
-        pt={["46px", "46px", "36px", "36px"]}
+        pt={["46px", "46px", "60px", "60px"]}
       >
         <Button
           onClick={getUserLocation}
@@ -302,10 +303,10 @@ function Main() {
         </Flex>
       </Box>
 
-      <HStack 
-        wrap="wrap" 
+      <HStack
+        wrap="wrap"
         gap="4"
-        >
+      >
         <For each={["xs"]}>
           {(size) => (
             <Dialog.Root
@@ -316,12 +317,12 @@ function Main() {
               <Dialog.Trigger asChild>
 
                 <Button variant="outline">Open Dialog</Button>
-                
+
               </Dialog.Trigger>
 
               <Portal>
                 <Dialog.Backdrop />
-                
+
                 <Dialog.Positioner display="flex" alignItems="center" justifyContent="center">
                   <Dialog.Content
                     p="30px"
@@ -339,8 +340,14 @@ function Main() {
                       p="0"
                     >
                       <p style={{ lineHeight: "20px" }}>
-                        Cookies help us deliver the best experience on our website. 
-                        By using our website, you agree to the use of cookies. <span style={{ textDecoration: "underline" }}>Find out how we use cookies.</span>
+                        Cookies help us deliver the best experience on our website.
+                        By using our website, you agree to the use of cookies.
+                        <RouterLink
+                          className="link-footer"
+                          to="/privacy-policy"
+                          hash="root"
+                        > <span style={{ textDecoration: "underline", color: "#131313" }}>Find out how we use cookies.</span>
+                        </RouterLink>
                       </p>
                     </Dialog.Body>
                     <Dialog.Footer
@@ -350,14 +357,14 @@ function Main() {
                       mt="30px"
                     >
                       <Dialog.ActionTrigger asChild w="47%">
-                        <Button 
-                        variant="outline" 
-                        borderColor="ui.muted"
-                        color="ui.dark"
-                        background="ui.white"
-                        borderWidth="3px"
-                        borderRadius="initial"
-                        
+                        <Button
+                          variant="outline"
+                          borderColor="ui.muted"
+                          color="ui.dark"
+                          background="ui.white"
+                          borderWidth="3px"
+                          borderRadius="initial"
+
                         >Yes</Button>
                       </Dialog.ActionTrigger>
 
@@ -372,7 +379,7 @@ function Main() {
 
                     </Dialog.Footer>
 
-                    <Dialog.CloseTrigger 
+                    <Dialog.CloseTrigger
                       position="absolute"
                       top="8px"
                       right="14px"

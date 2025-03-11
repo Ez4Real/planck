@@ -2,9 +2,10 @@ import { TermsOfServiceItem } from "@/components/Common/TermsOfServiceItem"
 import { TermsOfServiceTitle } from "@/components/Common/TermsOfServiceTitle"
 import { Box, Container, Heading, List, Separator, Text } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
+import { Link as RouterLink } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/_main_layout/terms-of-service")({
-    component: TermsOfService,
+  component: TermsOfService,
 })
 
 
@@ -35,8 +36,19 @@ function TermsOfService() {
         <Text
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
-          mt={["12px" ,"24px" , "24px", "24px"]}
-        >Welcome! We're glad you're interested in Planck Technologies, Inc. ("Planck AI," "we," or "us"). This document covers our website www.planckai.io, software, and related services (collectively, the "Service"). These Terms and Conditions, along with our Privacy Policy (https://planckai.io/privacy), form a legally binding agreement between you and Planck AI.
+          mt={["12px", "24px", "24px", "24px"]}
+        >Welcome! We're glad you're interested in Planck Technologies, Inc.
+          ("Planck AI," "we," or "us"). This document covers our website www.planckai.io,
+          software, and related services (collectively, the "Service"). These Terms and Conditions,
+          along with our Privacy Policy
+          <RouterLink
+            className="link-footer"
+            to="/privacy-policy"
+            hash="root"
+          > <span style={{ color: "#131313", fontSize: "16px" }}>(https://planckai.io/privacy)</span>
+          </RouterLink>
+          ,form a legally binding agreement
+          between you and Planck AI.
         </Text>
 
         <Text
@@ -85,7 +97,7 @@ function TermsOfService() {
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt={["20px", "12px", "12px", "12px"]}
-        >We collect the following types of information to provide and improve our services: 
+        >We collect the following types of information to provide and improve our services:
         </Text>
 
         <List.Root
@@ -134,7 +146,7 @@ function TermsOfService() {
         <TermsOfServiceItem
           number="4.2."
           title="Online Payment Processing Partner."
-          text="Planck AI does not directly process online payments for the Service. To facilitate such payments via bank account, credit card, or debit card, we utilize the services of Stripe, Inc. and its affiliates (&quot;Stripe&quot;), a third-party payment processor. These payment processing services are governed by the Stripe terms and conditions and privacy policy (collectively, the &quot;Stripe Agreements&quot;), accessible at https://stripe.com/legal and https://stripe.com/privacy, respectively. By using the payment functionality of the Service, you agree to be bound by the Stripe Agreements, as they may be amended by Stripe from time to time. You hereby authorize Stripe to store and continue billing your designated payment method, including after its expiration, to ensure uninterrupted service. For further information regarding Stripe's services, please contact Stripe directly. Planck AI assumes no liability or responsibility for any payments processed through the Service. We reserve the right to add additional online payment providers, such as Stripe, in the future, and will update these Terms accordingly. Under certain circumstances, we may engage reseller partners for invoicing purposes."
+          text="Planck AI does not directly process online payments for the Service. To facilitate such payments via bank account, credit card, or debit card, we utilize the services of Stripe, Inc. and its affiliates (&quot;Stripe&quot;), a third-party payment processor. These payment processing services are governed by the Stripe terms and conditions and privacy policy (collectively, the &quot;Stripe Agreements&quot;), accessible at  https://stripe.com/legal and https://stripe.com/privacy, respectively. By using the payment functionality of the Service, you agree to be bound by the Stripe Agreements, as they may be amended by Stripe from time to time. You hereby authorize Stripe to store and continue billing your designated payment method, including after its expiration, to ensure uninterrupted service. For further information regarding Stripe's services, please contact Stripe directly. Planck AI assumes no liability or responsibility for any payments processed through the Service. We reserve the right to add additional online payment providers, such as Stripe, in the future, and will update these Terms accordingly. Under certain circumstances, we may engage reseller partners for invoicing purposes."
         />
         <TermsOfServiceItem
           number="4.3."
@@ -163,7 +175,7 @@ function TermsOfService() {
           title="Feedback."
           text="We value and appreciate the input and comments from our users. Should you choose to provide input and suggestions regarding existing functionalities, problems with, or proposed modifications or improvements to the Service (“Feedback”), you hereby grant Planck AI an unrestricted, perpetual, irrevocable, non-exclusive, fully paid, royalty-free right and license to exploit the Feedback in any manner and for any purpose, including to improve the Service and create other products and services. We will have no obligation to provide you with attribution for any Feedback you provide to us."
         />
-        
+
         <TermsOfServiceTitle title="Ownership; Proprietary Rights." />
         <TermsOfServiceItem
           number="6.1."

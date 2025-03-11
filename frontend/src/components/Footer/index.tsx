@@ -1,6 +1,6 @@
-import { Box, Container, Flex, Image, Link } from "@chakra-ui/react"
+import { Box, Container, Flex, Image } from "@chakra-ui/react"
 import { Link as RouterLink } from "@tanstack/react-router"
-import { useColorModeValue } from "../ui/color-mode"
+import { useColorMode, useColorModeValue } from "../ui/color-mode"
 
 const Footer = () => {
     const logo = useColorModeValue("/logo-black.svg", "/logo.svg")
@@ -8,6 +8,7 @@ const Footer = () => {
         moon: useColorModeValue("moon.svg", "moon-dark.svg"),
         sun: useColorModeValue("sun.svg", "sun-dark.svg"),
     };
+    const { colorMode, toggleColorMode } = useColorMode();
 
     return (
         <>
@@ -37,35 +38,40 @@ const Footer = () => {
                         >Privacy Policy
                         </RouterLink>
 
-                        {/* <RouterLink
+                        <RouterLink
                             className="link-footer"
                             to="/terms-of-service"
-                            
+                            hash="root"
                         >Terms of Service
-                        </RouterLink> */}
+                        </RouterLink>
 
                     </Flex>
-
-                    <Box
+                    
+                    <Box onClick={toggleColorMode}
                         display="inline-flex"
                         border="1px solid #4E4E4E"
                         borderRadius={["4px", "6px", "6px",]}
                         mt="13px"
                         w={["62px", "96px", "96px",]}
                         h={["24px", "38px", "38px",]}
+                        cursor="pointer"
+                        borderColor={colorMode === 'dark' ? "#F1F1F1" : "#4E4E4E"}
                     >
+
                         <Box
                             w={["31px", "48px", "48px",]}
                             h={["24px", "38px", "38px",]}
                         >
+                            {colorMode === 'dark'}
                             <Image
                                 src={`/assets/icons/${icons.moon}`}
                                 w={["31px", "48px", "48px",]}
                                 h={["22px", "36px", "36px",]}
                                 borderRadius={["4px", "6px", "6px",]}
-                                opacity="50%"
                                 p={["4px 8px", "7px 12px", "7px 12px",]}
-
+                                background={colorMode === 'dark' ? "#5c5c5c" : "white"}
+                                borderLeftColor={colorMode === 'dark' ? "#F1F1F1" : "#4E4E4E"}
+                                borderRight={colorMode === 'dark' ? "1px solid #F1F1F1" : "#4E4E4E"}
                             />
                         </Box>
 
@@ -73,6 +79,7 @@ const Footer = () => {
                             w={["31px", "48px", "48px",]}
                             h={["24px", "38px", "38px",]}
                         >
+                            {colorMode === 'light'}
                             <Image
                                 src={`/assets/icons/${icons.sun}`}
                                 w={["31px", "48px", "48px",]}
@@ -80,10 +87,12 @@ const Footer = () => {
                                 borderRadius={["4px", "6px", "6px",]}
                                 borderLeft="1px solid #4E4E4E"
                                 p={["4px 8px", "7px 12px", "7px 12px",]}
-                                background="#CACACA"
+                                background={colorMode === 'dark' ? "transperent" : "#CACACA"}
+                                borderLeftColor={colorMode === 'dark' ? "black" : "#4E4E4E"}
                             />
                         </Box>
                     </Box>
+
                 </Flex>
             </Container>
         </>

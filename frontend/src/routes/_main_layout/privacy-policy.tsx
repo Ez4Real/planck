@@ -283,11 +283,11 @@ function PrivacyPolicy() {
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >
-              
-              UK residents: Lodge complaints with the Information Commissioner’s Office (ICO) at &nbsp;
-              <span
-                style={{ textDecoration: "underline"}}>www.ico.org.uk.
-              </span>
+              UK residents: Lodge complaints with the Information Commissioner’s Office (ICO) at <a href="https://ico.org.uk/" target="_blank">
+                <span
+                  style={{ textDecoration: "underline"}}> www.ico.org.uk.
+                </span>
+              </a>
             </List.Item>
             <List.Item
               _marker={{ color: "ui.muted" }}
