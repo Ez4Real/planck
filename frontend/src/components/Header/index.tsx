@@ -1,32 +1,31 @@
-import { 
-    Box,
-    Image
+import {
+  Box,
+  Image
 } from "@chakra-ui/react"
 import { useColorModeValue } from "../ui/color-mode"
 import { useRouter } from "@tanstack/react-router"
 import { useMemo } from "react"
-  
-  const Header = () => {
-    const router = useRouter()
-    const isHomepage = useMemo(() => router.state.location.pathname === "/", [router.state.location.pathname])
-    const logo = useColorModeValue("/logo-black.svg", "/logo.svg")
-  
-    return (
-      <>
-        <Box
-          as="header"
-          py={isHomepage ? "96px" : "72px"}
-          pl={isHomepage ? 0 : "48px"}
-          width="-webkit-fill-available"
-        >
+import { Link as RouterLink } from "@tanstack/react-router"
+
+const Header = () => {
+  const router = useRouter()
+  const isHomepage = useMemo(() => router.state.location.pathname === "/", [router.state.location.pathname])
+  const logo = useColorModeValue("/logo-black.svg", "/logo.svg")
+
+  return (
+    <>
+      <Box
+        as="header"
+        width="-webkit-fill-available"
+      >
+        <RouterLink to="/">
           <Image
             src={`/assets/images/${logo}`}
-            h={isHomepage ? "84px" : "29px"}
-            mx={isHomepage ? "auto" : 0}
           />
-        </Box>
-      </>
-    )
-  }
-  
-  export default Header
+        </RouterLink>
+      </Box>
+    </>
+  )
+}
+
+export default Header
