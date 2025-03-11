@@ -1,5 +1,6 @@
 import { createSystem, defaultConfig } from "@chakra-ui/react"
 import { buttonRecipe } from "./theme/button.recipe"
+import { inputRecipe } from "./theme/input.recipe"
 
 export const system = createSystem(defaultConfig, {
   globalCss: {
@@ -41,6 +42,7 @@ export const system = createSystem(defaultConfig, {
     },
     recipes: {
       button: buttonRecipe,
+      input: inputRecipe
     },
   },
 })

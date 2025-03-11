@@ -1,3 +1,4 @@
+import AddSubscriber from "@/components/Subscribers/AddSubscriber";
 import {
   Box,
   Button,
@@ -5,50 +6,16 @@ import {
   Flex,
   Text,
   HStack,
-  Input,
-  Field,
-  CloseButton,
-  Dialog,
-  For,
-  Portal,
 } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
-import { useState } from "react";
-import { Link as RouterLink } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/_main_layout/")({
   component: Main,
 })
 
-interface Coordinates {
-  latitude: number;
-  longitude: number;
-}
+
 
 function Main() {
-  const [isAccepted, setIsAccepted] = useState(localStorage.getItem('accept_cookies'))
-
-  // const [location, setLocation] = useState<Coordinates | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-
-  const getUserLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          console.log(latitude, longitude);
-
-        },
-        (err) => {
-          setError(err.message);
-        }
-      );
-    } else {
-      setError('Geolocation is not supported by this browser.');
-    }
-  };
-
   return (
     <Container
       p={["0 21px", "0 21px", "0 21px", "0 54px"]}
@@ -78,13 +45,13 @@ function Main() {
         pt={["46px", "46px", "60px", "60px"]}
       >
         <Button
-          onClick={getUserLocation}
           fontSize={["12px", "12px", "16px", "16px"]}
           h={["31px", "31px", "36px", "36px"]}
           variant="plain"
           p="8px 18px"
         >Join Waitlist</Button>
       </Flex>
+      
 
       <Box
         p={["16px 0", "16px 0", "16px 0", "31px 40px 55px"]}
@@ -276,124 +243,8 @@ function Main() {
           hub with your most sensitive <Box display={["block", "block", "none", "none"]} /> information.
         </Text>
 
-        <Flex
-          justifyContent="center"
-          alignItems="center"
-          gap="4"
-        >
-          <Field.Root
-            w={["246px", "246px", "275px"]}
-          >
-            <Input
-              placeholder="Enter your email"
-              color="ui.muted"
-              fontSize="14px"
-              fontFamily="input"
-              h={["32px", "32px", "36px"]}
-              borderColor="ui.muted"
-            />
-          </Field.Root>
-          <Button
-            onClick={getUserLocation}
-            variant="plain"
-            fontSize={["12px", "12px", "14px", "14px"]}
-            p={["9px 18px", "9px 18px", "9px 12px", "9px 12px"]}
-            h={["32px", "32px", "36px", "36px"]}
-          >Join Waitlist</Button>
-        </Flex>
+        <AddSubscriber />
       </Box>
-
-      <HStack
-        wrap="wrap"
-        gap="4"
-      >
-        <For each={["xs"]}>
-          {(size) => (
-            <Dialog.Root
-              key={size}
-              size={size}
-              motionPreset="slide-in-bottom"
-            >
-              <Dialog.Trigger asChild>
-
-                <Button variant="outline">Open Dialog</Button>
-
-              </Dialog.Trigger>
-
-              <Portal>
-                <Dialog.Backdrop />
-
-                <Dialog.Positioner display="flex" alignItems="center" justifyContent="center">
-                  <Dialog.Content
-                    p="30px"
-                    maxWidth="320px"
-                  >
-                    <Dialog.Header
-                      p="0"
-                      pb="16px"
-                    >
-                      <Dialog.Title
-                      >We use cookies</Dialog.Title>
-                    </Dialog.Header>
-
-                    <Dialog.Body
-                      p="0"
-                    >
-                      <p style={{ lineHeight: "20px" }}>
-                        Cookies help us deliver the best experience on our website.
-                        By using our website, you agree to the use of cookies.
-                        <RouterLink
-                          className="link-footer"
-                          to="/privacy-policy"
-                          hash="root"
-                        > <span style={{ textDecoration: "underline", color: "#131313" }}>Find out how we use cookies.</span>
-                        </RouterLink>
-                      </p>
-                    </Dialog.Body>
-                    <Dialog.Footer
-                      display="flex"
-                      justifyContent="space-between"
-                      p="0"
-                      mt="30px"
-                    >
-                      <Dialog.ActionTrigger asChild w="47%">
-                        <Button
-                          variant="outline"
-                          borderColor="ui.muted"
-                          color="ui.dark"
-                          background="ui.white"
-                          borderWidth="3px"
-                          borderRadius="initial"
-
-                        >Yes</Button>
-                      </Dialog.ActionTrigger>
-
-                      <Button
-                        w="47%"
-                        color="ui.dark"
-                        background="ui.white"
-                        borderColor="ui.muted"
-                        borderWidth="3px"
-                        borderRadius="initial"
-                      >No</Button>
-
-                    </Dialog.Footer>
-
-                    <Dialog.CloseTrigger
-                      position="absolute"
-                      top="8px"
-                      right="14px"
-                    >
-                      <CloseButton size="sm" color="ui.dark" />
-                    </Dialog.CloseTrigger>
-
-                  </Dialog.Content>
-                </Dialog.Positioner>
-              </Portal>
-            </Dialog.Root>
-          )}
-        </For>
-      </HStack>
 
     </Container>
   )

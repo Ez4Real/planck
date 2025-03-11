@@ -1,5 +1,6 @@
 import type { ApiError } from "./client"
 import useCustomToast from "./hooks/useCustomToast"
+import { UserCoordinates } from './client/types.gen'
 
 export const emailPattern = {
   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -52,4 +53,26 @@ export const handleError = (err: ApiError) => {
     errorMessage = errDetail[0].msg
   }
   showErrorToast(errorMessage)
+}
+
+export const getUserCoordinates = (): Promise<UserCoordinates> => {
+  const { showErrorToast } = useCustomToast()
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      const notSupportedMsg = "Geolocation is not supported by your browser."
+      showErrorToast(notSupportedMsg)
+      reject(new Error(notSupportedMsg))
+      return
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coords: UserCoordinates = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        }
+        resolve(coords)
+      },
+      (error) => reject(error)
+    )
+  })
 }

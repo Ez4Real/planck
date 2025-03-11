@@ -13,11 +13,6 @@ export type Body_products_upload_images = {
   images: Array<Blob | File>
 }
 
-export type Body_subscribers_create_subscriber = {
-  coordinates_in: UserCoordinates
-  subscriber_in: SubscriberCreate
-}
-
 export type HTTPValidationError = {
   detail?: Array<ValidationError>
 }
@@ -61,9 +56,9 @@ export type ProductUpdate = {
 }
 
 export type SubscriberCreate = {
+  latitude: number
+  longitude: number
   email: string
-  created_at?: string
-  location: string | null
 }
 
 export type SubscriberPublic = {
@@ -86,11 +81,6 @@ export type Token = {
 export type UpdatePassword = {
   current_password: string
   new_password: string
-}
-
-export type UserCoordinates = {
-  latitude: number
-  longitude: number
 }
 
 export type UserCreate = {
@@ -225,7 +215,7 @@ export type SubscribersReadSubscribersData = {
 export type SubscribersReadSubscribersResponse = SubscribersPublic
 
 export type SubscribersCreateSubscriberData = {
-  requestBody: Body_subscribers_create_subscriber
+  requestBody: SubscriberCreate
 }
 
 export type SubscribersCreateSubscriberResponse = SubscriberPublic

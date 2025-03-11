@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException
 from sqlmodel import func, select
 
 from app.api.deps import CurrentUser, SessionDep
-from app.models import UserCoordinates, Subscriber, SubscriberCreate, SubscriberPublic, SubscribersPublic, Message
+from app.models import Subscriber, SubscriberCreate, SubscriberPublic, SubscribersPublic, Message
 from app.utils import get_user_location_by_coordinates
 
 router = APIRouter(prefix="/subscribers", tags=["subscribers"])
@@ -43,14 +43,14 @@ def read_subscriber(session: SessionDep, current_user: CurrentUser, id: uuid.UUI
 @router.post("/", response_model=SubscriberPublic)
 def create_subscriber(
     *, session: SessionDep,
-    coordinates_in: UserCoordinates,
     subscriber_in: SubscriberCreate
 ) -> Any:
     """
     Create new subscriber.
     """
-    latitude, longitude = coordinates_in.latitude, coordinates_in.longitude
-    location = get_user_location_by_coordinates(latitude, longitude)
+    location = get_user_location_by_coordinates(
+        subscriber_in.latitude, subscriber_in.longitude
+    )
     
     subscriber = Subscriber.model_validate(
         subscriber_in,
