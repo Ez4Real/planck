@@ -21,7 +21,12 @@ function Navbar() {
       p={4}
     >
       <Link to="/admin">
-        <Image src={logo} alt="Planck Logo" maxW="3xs" p={2} />
+        <Image
+          src={`/assets/images/${logo}`}
+          alt="Planck Logo"
+          maxW="3xs"
+          p={2}
+        />
       </Link>
       <Flex gap={2} alignItems="center">
         <UserMenu />

@@ -20,7 +20,7 @@ import { useMemo } from "react"
           width="-webkit-fill-available"
         >
           <Image
-            src={logo}
+            src={`/assets/images/${logo}`}
             h={isHomepage ? "84px" : "29px"}
             mx={isHomepage ? "auto" : 0}
           />

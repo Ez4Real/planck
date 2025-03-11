@@ -19,7 +19,7 @@ function PrivacyPolicy() {
         lineHeight={["20px", "35px", "35px", "35px"]}
       >Privacy Policy</Heading>
 
-      <Box>
+      <Box maxW={["365px", "1040px", "1040px", "1040px"]}>
         <Text
           fontSize={["14px", "18px", "18px", "18px"]}
           lineHeight={["18px", "23px", "23px", "23px"]}
@@ -29,14 +29,13 @@ function PrivacyPolicy() {
         >Effective Date: February 19, 2025</Text>
         <Text
           color="ui.muted"
-          maxWidth={["365px", "1040px", "1040px", "1040px"]}
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt="16px"
         >Planck Technologies Inc ("Company," "we," "our," or "us"), a Delaware C Corporation, provides AI-powered enterprise data solutions. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services in the USA, Europe (including the United Kingdom and European Economic Area), India, and other applicable jurisdictions.</Text>
 
         <PrivacyPolicyListItem
-          number="1"
+          number="1."
           title="Information We Collect"
           description="We collect the following types of information to provide and improve our services"
           points={[
@@ -47,7 +46,7 @@ function PrivacyPolicy() {
           ]}
         />
         <PrivacyPolicyListItem
-          number="2"
+          number="2."
           title="How We Use Information"
           description="Your data is processed for the following purposes"
           points={[
@@ -59,7 +58,7 @@ function PrivacyPolicy() {
           ]}
         />
         <PrivacyPolicyListItem
-          number="3"
+          number="3."
           title="Legal Bases for Processing (EU, UK, and EEA Users)"
           description="We process your data based on"
           points={[
@@ -70,7 +69,7 @@ function PrivacyPolicy() {
           ]}
         />
         <PrivacyPolicyListItem
-          number="4"
+          number="4."
           title="Data Sharing and Disclosure"
           description="We may share information with"
           points={[
@@ -89,7 +88,7 @@ function PrivacyPolicy() {
           ]}
         />
         <PrivacyPolicyListItem
-          number="5"
+          number="5."
           title="International Data Transfers"
           description="We process data in the USA, Europe, India, and other jurisdictions. For cross-border transfers"
           points={[
@@ -99,7 +98,7 @@ function PrivacyPolicy() {
           ]}
         />
         <PrivacyPolicyListItem
-          number="6"
+          number="6."
           title="Data Security"
           description="We implement industry-standard measures to secure your data, including"
           points={[
@@ -110,67 +109,69 @@ function PrivacyPolicy() {
         />
       </Box>
 
-      <PrivacyPolicyListItem
-        number="7"
-        title="Your Privacy Rights"
-        description="Depending on your jurisdiction, you may have the following rights"
-        points={[
-          "Access: Obtain copies of your personal data.",
-          "Rectification: Correct inaccurate or incomplete information.",
-          "Deletion: Request data erasure, subject to legal obligations.",
-          "Restriction & Objection: Limit or object to certain processing.",
-          "Data Portability: Receive data in a machine-readable format.",
-          "Withdraw Consent: Without affecting prior lawful processing."
-        ]}
-      />
-      <PrivacyPolicyListItem
-        number="7.2"
-        title="Colorado, Virginia, Connecticut, and Utah Residents"
-        titleFontSize="16px"
-        description="Residents of these states have similar rights under their respective privacy laws. We honor valid requests for"
-        points={[
-          "Data access",
-          "Correction",
-          "Deletion",
-          "Opt-outs"
-        ]}
-      />
-      <PrivacyPolicyListItem
-        number="7.3"
-        title="UK and EU Residents (UK GDPR & GDPR)"
-        titleFontSize="16px"
-        description="You have rights to"
-        points={[
-          "Access",
-          "Rectify",
-          "Erase",
-          "Restrict processing",
-          "Request data portability",
-          "Submit requests to privacy@planckai.io. Appeals can be directed to your Data Protection Authority."
-        ]}
-      />
-      <PrivacyPolicyListItem
-        number="7.4"
-        title="India Residents (DPDP Act)"
-        titleFontSize="16px"
-        description="Under India’s DPDP Act, you may"
-        points={[
-          "Access personal data",
-          "Correct inaccuracies",
-          "Withdraw consent"
-        ]}
-      />
-      <Text
-        fontSize={["12px", "18px", "18px", "18px"]}
-        lineHeight={["15px", "28px", "28px", "28px"]}
-        fontWeight="500"
-        mt="24px"
-      >
-        Contact us at <span
-          style={{ textDecoration: "underline" }}>privacy@planckai.io.
-        </span>
-      </Text>
-      <Box>
+      <Box maxW={["365px", "1072px", "1072px", "1072px"]}>
+        <PrivacyPolicyListItem
+          number="7."
+          title="Your Privacy Rights"
+          description="Depending on your jurisdiction, you may have the following rights"
+          points={[
+            "Access: Obtain copies of your personal data.",
+            "Rectification: Correct inaccurate or incomplete information.",
+            "Deletion: Request data erasure, subject to legal obligations.",
+            "Restriction & Objection: Limit or object to certain processing.",
+            "Data Portability: Receive data in a machine-readable format.",
+            "Withdraw Consent: Without affecting prior lawful processing."
+          ]}
+        />
+        <PrivacyPolicyListItem
+          number="7.2."
+          title="Colorado, Virginia, Connecticut, and Utah Residents"
+          titleFontSize={["16px", "20px", "20px", "20px"]}
+          description="Residents of these states have similar rights under their respective privacy laws. We honor valid requests for"
+          points={[
+            "Data access",
+            "Correction",
+            "Deletion",
+            "Opt-outs"
+          ]}
+        />
+        <PrivacyPolicyListItem
+          number="7.3."
+          title="UK and EU Residents (UK GDPR & GDPR)"
+          titleFontSize={["16px", "20px", "20px", "20px"]}
+          description="You have rights to"
+          points={[
+            "Access",
+            "Rectify",
+            "Erase",
+            "Restrict processing",
+            "Request data portability",
+            "Submit requests to privacy@planckai.io. Appeals can be directed to your Data Protection Authority."
+          ]}
+        />
+        <PrivacyPolicyListItem
+          number="7.4."
+          title="India Residents (DPDP Act)"
+          titleFontSize={["16px", "20px", "20px", "20px"]}
+          description="Under India’s DPDP Act, you may"
+          points={[
+            "Access personal data",
+            "Correct inaccuracies",
+            "Withdraw consent"
+          ]}
+        />
+        <Text
+          fontSize={["12px", "18px", "18px", "18px"]}
+          lineHeight={["15px", "28px", "28px", "28px"]}
+          fontWeight="500"
+          mt="24px"
+        >
+          Contact us at <span
+            style={{ textDecoration: "underline" }}>privacy@planckai.io.
+          </span>
+        </Text>
+      </Box>
+      <Box maxW={["365px", "1048px", "1048px", "1048px"]}>
         <PrivacyPolicyItem
           number="8"
           title="Data Retention"
@@ -201,7 +202,7 @@ function PrivacyPolicy() {
           >What are Cookies?</Text>
           <Text
             color="ui.muted"
-            maxWidth={["365px", "1040px", "1040px", "1040px"]}
+
             lineHeight={["15px", "20px", "20px", "20px"]}
             fontSize={["12px", "16px", "16px", "16px"]}
             mt="12px"
@@ -225,7 +226,7 @@ function PrivacyPolicy() {
           </Text>
           <Text
             color="ui.muted"
-            maxWidth={["365px", "1040px", "1040px", "1040px"]}
+
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt={["16px", "12px", "12px", "12px"]}

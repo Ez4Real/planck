@@ -5,8 +5,8 @@ import { useColorModeValue } from "../ui/color-mode"
 const Footer = () => {
     const logo = useColorModeValue("/logo-black.svg", "/logo.svg")
     const icons = {
-        moon: useColorModeValue("/assets/moon.svg", "/assets/moon-dark.svg"),
-        sun: useColorModeValue("/assets/sun.svg", "/assets/sun-dark.svg"),
+        moon: useColorModeValue("moon.svg", "moon-dark.svg"),
+        sun: useColorModeValue("sun.svg", "sun-dark.svg"),
     };
 
     return (
@@ -23,7 +23,7 @@ const Footer = () => {
                         gap={["8px", "8px", "12px", "12px",]}
                     >
                         <Image
-                            src={logo}
+                            src={`/assets/images/${logo}`}
                             h={["17px", "17px", "39px", "39px",]}
                             width={["131.36px", "131.36px", "176px", "176px",]}
                             mb={["8px", "8px", "4px", "4px",]}
@@ -59,7 +59,7 @@ const Footer = () => {
                             h={["24px", "38px", "38px",]}
                         >
                             <Image
-                                src={icons.moon}
+                                src={`/assets/icons/${icons.moon}`}
                                 w={["31px", "48px", "48px",]}
                                 h={["22px", "36px", "36px",]}
                                 borderRadius={["4px", "6px", "6px",]}
@@ -74,7 +74,7 @@ const Footer = () => {
                             h={["24px", "38px", "38px",]}
                         >
                             <Image
-                                src={icons.sun}
+                                src={`/assets/icons/${icons.sun}`}
                                 w={["31px", "48px", "48px",]}
                                 h={["22px", "36px", "36px"]}
                                 borderRadius={["4px", "6px", "6px",]}

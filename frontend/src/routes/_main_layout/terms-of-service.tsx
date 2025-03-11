@@ -1,5 +1,3 @@
-// import { PrivacyPolicyItem } from "@/components/Common/PrivacyPolicyItem"
-// import { PrivacyPolicyListItem } from "@/components/Common/PrivacyPolicyListItem"
 import { TermsOfServiceItem } from "@/components/Common/TermsOfServiceItem"
 import { TermsOfServiceTitle } from "@/components/Common/TermsOfServiceTitle"
 import { Box, Container, Heading, List, Separator, Text } from "@chakra-ui/react"
@@ -21,7 +19,7 @@ function TermsOfService() {
         lineHeight={["20px", "45px", "45px", "45px"]}
       >Terms of Service</Heading>
 
-      <Box>
+      <Box maxW={["365px", "1040px", "1040px", "1040px"]}>
         <Text
           fontSize={["14px", "18px", "18px", "18px"]}
           fontWeight="600"
@@ -53,7 +51,9 @@ function TermsOfService() {
           mt="16px"
         >When you click "I Accept," sign an order form referencing these terms, or use our Service, you're agreeing to these terms. If you're using the Service for an organization that has a separate agreement with us, that agreement takes precedence if there's any conflict with these terms.
         </Text>
+      </Box>
 
+      <Box maxW={["362px", "1095px", "1095px", "1095px"]}>
         <Text
           fontSize={["13px", "16px", "16px", "16px"]}
           lineHeight={["16px", "22px", "22px", "22px"]}
@@ -64,19 +64,21 @@ function TermsOfService() {
             as="span"
             fontWeight="600"
           >Notice of Arbitration and Class Action Waiver: </Text>
-          Except for the specific disputes outlined in Section 15, you agree that any dispute arising under these Terms will be resolved by binding, individual arbitration. By accepting these Terms, you and Planck AI each waive the right to a trial by jury and the right to participate in any class action or representative proceeding.
+          Except for the specific disputes outlined in Section 15, you agree that any dispute arising under these Terms will be resolved by binding, individual arbitration.<br/>By accepting these Terms, you and Planck AI each waive the right to a trial by jury and the right to participate in any class action or representative proceeding.
         </Text>
+      </Box>
 
-        <Separator
-          mt={["32px", "42px", "42px", "42px"]}
-          mb={["24px", "42px", "42px", "42px"]}
-          borderColor="black"
-        />
+      <Separator
+        mt={["32px", "42px", "42px", "42px"]}
+        mb={["24px", "42px", "42px", "42px"]}
+        borderColor="black"
+      />
 
+      <Box maxW={["365px", "1040px", "1040px", "1040px"]}>
         <Text
           fontSize={["16px", "20px", "20px", "20px"]}
           fontWeight="600"
-          lineHeight={["20px", "23px", "23px", "23px"]}
+          lineHeight={["20px", "25px", "25px", "25px"]}
           mt={["24px", "52px", "52px", "52px"]}
         >Please carefully review the following terms</Text>
         <Text
@@ -93,9 +95,9 @@ function TermsOfService() {
           mt="12px"
           marginInlineStart="1.5em"
         >{[
-            "Planck AI Service Overview. Our Planck AI platform offers a suite of data and document analysis tools driven by machine learning, to help users understand more easily, about the information in those files. The platform can also provide suggested texts, outputs or other functions",
-            "Eligibility. You must be at least 18 years old or the age of majority in your jurisdiction, whichever is older, to use the Service. By agreeing to these Terms, you represent and warrant that (a) you meet this age requirement; (b) you have not been previously suspended or removed from the Service; and (c) your registration and use of the Service comply with all applicable laws and regulations. If you are an entity, organization, or company, the individual accepting these Terms on your behalf represents and warrants that they have the authority to bind you to these Terms",
-            "Accounts and Registration: Access to many features of the Service requires account registration. During registration, you may be asked to provide certain information, including your name, email address, and other contact information. You represent and warrant that all information provided is accurate, complete, and not misleading, and that you will maintain its accuracy and completeness. You are solely responsible for maintaining the confidentiality of your account credentials and are responsible for all activities that occur under your account. In the event you believe your account security has been compromised, please notify us immediately at contact@planckai.io"
+            "Planck AI Service Overview. Our Planck AI platform offers a suite of data and document analysis tools driven by machine learning, to help users understand more easily, about the information in those files. The platform can also provide suggested texts, outputs or other functions.",
+            "Eligibility. You must be at least 18 years old or the age of majority in your jurisdiction, whichever is older, to use the Service. By agreeing to these Terms, you represent and warrant that (a) you meet this age requirement; (b) you have not been previously suspended or removed from the Service; and (c) your registration and use of the Service comply with all applicable laws and regulations. If you are an entity, organization, or company, the individual accepting these Terms on your behalf represents and warrants that they have the authority to bind you to these Terms.",
+            "Accounts and Registration: Access to many features of the Service requires account registration. During registration, you may be asked to provide certain information, including your name, email address, and other contact information. You represent and warrant that all information provided is accurate, complete, and not misleading, and that you will maintain its accuracy and completeness. You are solely responsible for maintaining the confidentiality of your account credentials and are responsible for all activities that occur under your account. In the event you believe your account security has been compromised, please notify us immediately at contact@planckai.io."
           ].map((point, index) => (
             <List.Item
               key={index}
@@ -103,22 +105,27 @@ function TermsOfService() {
             >{point}</List.Item>
           ))}
         </List.Root>
+      </Box>
 
+      <Box maxW={["362px", "1048px", "1048px", "1048px"]}>
         <Text
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
-          mt={["16px", "36px", "36px", "36px"]}
+          mt={["24px", "42px", "42px", "42px"]}
         >
           <Text
             as="span"
             display={["flex", "inline", "inline", "inline"]}
             pb={["12px", 0, 0, 0]}
             fontSize={["13px", "18px", "18px", "18px"]}
+            lineHeight={["20px", "25px", "25px", "25px"]}
             fontWeight="600"
           >Payment Terms: </Text>
           Certain features of the Service may require the payment of fees. Prior to incurring any fees, you will be afforded the opportunity to review and accept the applicable charges. Unless otherwise expressly provided in these Terms, all fees are payable in U.S. Dollars or such other currency as we may determine and are non-refundable, except where otherwise required by law. The pricing and payment terms set forth in this Section 4 are subject to any conflicting or supplemental pricing and payment terms specified in an Order Form.
         </Text>
+      </Box>
 
+      <Box maxW={["370px", "981px", "981px", "981px"]}>
         <TermsOfServiceItem
           number="4.1."
           title="Pricing."
@@ -127,7 +134,7 @@ function TermsOfService() {
         <TermsOfServiceItem
           number="4.2."
           title="Online Payment Processing Partner."
-          text="Planck AI does not directly process online payments for the Service. To facilitate such payments via bank account, credit card, or debit card, we utilize the services of Stripe, Inc. and its affiliates (&quot;Stripe&quot;), a third-party payment processor. These payment processing services are governed by the Stripe terms and conditions and privacy policy (collectively, the &quot;Stripe Agreements&quot;), accessible athttps://stripe.com/legal and https://stripe.com/privacy, respectively. By using the payment functionality of the Service, you agree to be bound by the Stripe Agreements, as they may be amended by Stripe from time to time. You hereby authorize Stripe to store and continue billing your designated payment method, including after its expiration, to ensure uninterrupted service. For further information regarding Stripe's services, please contact Stripe directly. Planck AI assumes no liability or responsibility for any payments processed through the Service. We reserve the right to add additional online payment providers, such as Stripe, in the future, and will update these Terms accordingly. Under certain circumstances, we may engage reseller partners for invoicing purposes."
+          text="Planck AI does not directly process online payments for the Service. To facilitate such payments via bank account, credit card, or debit card, we utilize the services of Stripe, Inc. and its affiliates (&quot;Stripe&quot;), a third-party payment processor. These payment processing services are governed by the Stripe terms and conditions and privacy policy (collectively, the &quot;Stripe Agreements&quot;), accessible at https://stripe.com/legal and https://stripe.com/privacy, respectively. By using the payment functionality of the Service, you agree to be bound by the Stripe Agreements, as they may be amended by Stripe from time to time. You hereby authorize Stripe to store and continue billing your designated payment method, including after its expiration, to ensure uninterrupted service. For further information regarding Stripe's services, please contact Stripe directly. Planck AI assumes no liability or responsibility for any payments processed through the Service. We reserve the right to add additional online payment providers, such as Stripe, in the future, and will update these Terms accordingly. Under certain circumstances, we may engage reseller partners for invoicing purposes."
         />
         <TermsOfServiceItem
           number="4.3."
@@ -188,6 +195,7 @@ function TermsOfService() {
           />
         </Box>
         <Text
+          maxW={["370px", "981px", "981px", "981px"]}
           fontWeight="600"
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}

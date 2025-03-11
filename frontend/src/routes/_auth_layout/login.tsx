@@ -68,7 +68,7 @@ function Login() {
         centerContent
       >
         <Image
-          src={logo}
+          src={`/assets/images/${logo}`}
           alt="Planck logo"
           height="auto"
           maxW="2xs"

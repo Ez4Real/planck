@@ -25,7 +25,9 @@ interface Coordinates {
 }
 
 function Main() {
-  const [location, setLocation] = useState<Coordinates | null>(null)
+  const [isAccepted, setIsAccepted] = useState(localStorage.getItem('accept_cookies'))
+
+  // const [location, setLocation] = useState<Coordinates | null>(null)
   const [error, setError] = useState<string | null>(null)
 
 
