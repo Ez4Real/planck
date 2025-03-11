@@ -17,6 +17,7 @@ from geopy.exc import GeocoderTimedOut
 
 from app.core import security
 from app.core.config import settings
+from app.models import UserCoordinates
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -164,12 +165,13 @@ def delete_image_from_local(image_path: str, upload_dir: Path) -> bool:
         return True
     return False
 
-def get_user_location_by_coordinates(
-      latitude: float, longitude: float
-    ) -> str | None:
+def get_user_location_by_coordinates(coordinates) -> str | None:
     """
     Returns user location by coordinates (latitude / longitude)
     """
     geolocator = Nominatim(user_agent=settings.PROJECT_NAME)
-    location = geolocator.reverse((latitude, longitude))
+    location = geolocator.reverse((
+      coordinates.latitude,
+      coordinates.longitude
+    ))
     return location.address if location else None

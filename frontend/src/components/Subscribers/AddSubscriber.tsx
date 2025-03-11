@@ -24,8 +24,10 @@ const AddSubscriber = () => {
     mode: "onBlur",
     criteriaMode: "all",
     defaultValues: {
-      latitude: 0,
-      longitude: 0,
+      coordinates: {
+        latitude: 0,
+        longitude: 0,
+      },
       email: "",
     },
   })
@@ -45,11 +47,13 @@ const AddSubscriber = () => {
   })
 
   const onSubmit: SubmitHandler<SubscriberCreate> = async (data) => {
-    const { latitude, longitude } = await getUserCoordinates()
+    const coordinates  = await getUserCoordinates()
     const processedData = {
-      latitude: latitude,
-      longitude: longitude,
-      email: data.email
+      ...data,
+      coordinates: {
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+      },
     }
 
     mutation.mutate(processedData)

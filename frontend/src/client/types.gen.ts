@@ -56,9 +56,8 @@ export type ProductUpdate = {
 }
 
 export type SubscriberCreate = {
-  latitude: number
-  longitude: number
   email: string
+  coordinates: UserCoordinates
 }
 
 export type SubscriberPublic = {
@@ -81,6 +80,11 @@ export type Token = {
 export type UpdatePassword = {
   current_password: string
   new_password: string
+}
+
+export type UserCoordinates = {
+  latitude: number
+  longitude: number
 }
 
 export type UserCreate = {

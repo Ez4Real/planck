@@ -43,13 +43,13 @@ def read_subscriber(session: SessionDep, current_user: CurrentUser, id: uuid.UUI
 @router.post("/", response_model=SubscriberPublic)
 def create_subscriber(
     *, session: SessionDep,
-    subscriber_in: SubscriberCreate
+    subscriber_in: SubscriberCreate,
 ) -> Any:
     """
     Create new subscriber.
     """
     location = get_user_location_by_coordinates(
-        subscriber_in.latitude, subscriber_in.longitude
+        subscriber_in.coordinates
     )
     
     subscriber = Subscriber.model_validate(
