@@ -1,4 +1,5 @@
 import AddSubscriber from "@/components/Subscribers/AddSubscriber";
+import { useRef } from "react";
 import {
   Box,
   Button,
@@ -16,6 +17,12 @@ export const Route = createFileRoute("/_main_layout/")({
 
 
 function Main() {
+  const subscriberRef = useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = () => {
+    subscriberRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Container
       p={["0 21px", "0 21px", "0 21px", "0 54px"]}
@@ -40,16 +47,18 @@ function Main() {
         information. Simply ask questions about your documents and data <Box display={["none", "none", "block", "block"]} />
         in natural language. Get immediate insights that matter.
       </Text>
-      <Flex
-        justifyContent="center"
-        pt={["46px", "46px", "60px", "60px"]}
-      >
+      <Flex 
+        justifyContent="center" 
+        pt={["46px", "46px", "60px", "60px"]}>
         <Button
           fontSize={["12px", "12px", "16px", "16px"]}
           h={["31px", "31px", "36px", "36px"]}
           variant="plain"
           p="8px 18px"
-        >Join Waitlist</Button>
+          onClick={handleScroll}
+        >
+          Join Waitlist
+        </Button>
       </Flex>
       
 
@@ -243,7 +252,9 @@ function Main() {
           hub with your most sensitive <Box display={["block", "block", "none", "none"]} /> information.
         </Text>
 
-        <AddSubscriber />
+        <Box ref={subscriberRef}>
+          <AddSubscriber />
+        </Box>
       </Box>
 
     </Container>
