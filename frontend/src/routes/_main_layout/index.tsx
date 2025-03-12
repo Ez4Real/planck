@@ -16,11 +16,12 @@ export const Route = createFileRoute("/_main_layout/")({
 })
 
 
-
 function Main() {
   const horizontalBarBgColor = useColorModeValue("ui.dark", "ui.darkMuted")
   const horizontalBarTextColor = useColorModeValue("ui.darkMuted", "ui.dark")
   const mutedTextColor = useColorModeValue("ui.muted", "ui.darkMuted")
+  const magicalBlockBorderColor = useColorModeValue("ui.muted", "ui.darkHardMuted")
+  const magicalSeparatColor = useColorModeValue("ui.magicalOpacityBorder", "ui.darkHardMuted")
 
   const subscriberRef = useRef<HTMLDivElement | null>(null);
 
@@ -66,8 +67,8 @@ function Main() {
       <Box
         p={["16px 0", "16px 0", "16px 0", "31px 40px 55px"]}
         m={["101px 0", "120px 0"]}
-        border="1px solid #4E4E4E"
-        borderColor={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+        border="1px solid"
+        borderColor={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
         borderRadius="8px"
         boxShadow="4px 8px 9px rgba(0, 0, 0, 0.05)"
       >
@@ -109,7 +110,7 @@ function Main() {
             </Text>
 
             <Box
-              background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+              background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
               w="100%"
               h="1px"
               m={["16px 0", "16px 0", "16px 0", "32px 0"]}
@@ -138,7 +139,7 @@ function Main() {
           </Flex>
 
           <Box
-            background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+            background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
             w={["100%", "100%", "100%", "1px"]}
             h={["1px", "1px", "1px", "282px"]}
             m={["16px 0", "16px 0", "16px 0", "0 57px"]}
@@ -168,7 +169,7 @@ function Main() {
             </Text>
 
             <Box
-              background={["rgba(0, 0, 0, 0.3)", "#4E4E4E", "#4E4E4E", "#4E4E4E",]}
+              background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
               w="100%"
               h="1px"
               m={["16px 0", "16px 0", "16px 0", "32px 0"]}

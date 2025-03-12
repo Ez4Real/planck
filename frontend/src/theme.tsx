@@ -65,6 +65,7 @@ export const main = createSystem(defaultConfig, {
           steel: { value: "#A0AEC0" },
           darkMuted: { value: "#F1F1F1" },
           darkHardMuted: { value: "#D7D7D7" },
+          magicalOpacityBorder: { value: "rgba(0, 0, 0, 0.3)"}
         },
       },
     },
