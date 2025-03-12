@@ -5,9 +5,9 @@ export const inputRecipe = defineRecipe({
     variant: {
       outline: {
         fontFamily: "Space Grotesk, sans-serif",
-        color: "ui.muted",
+        color: { base: "ui.muted", _dark: "ui.darkMuted" },
         _placeholder: {
-            color: {base: "ui.muted", _dark: "ui.darkMuted"}
+          color: { base: "ui.muted", _dark: "ui.darkMuted" }
         },
       },
     },

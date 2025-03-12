@@ -1,5 +1,6 @@
 import AddSubscriber from "@/components/Subscribers/AddSubscriber";
 import { useColorModeValue } from "@/components/ui/color-mode";
+import { useRef } from "react";
 import {
   Box,
   Button,
@@ -20,6 +21,9 @@ function Main() {
   const horizontalBarBgColor = useColorModeValue("ui.dark", "ui.darkMuted")
   const horizontalBarTextColor = useColorModeValue("ui.darkMuted", "ui.dark")
   const mutedTextColor = useColorModeValue("ui.muted", "ui.darkMuted")
+
+  const subscriberRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <Container
       p={["0 21px", "0 21px", "0 21px", "0 54px"]}
@@ -52,7 +56,10 @@ function Main() {
           h={["31px", "31px", "36px", "36px"]}
           variant="plain"
           p="8px 18px"
-        >Join Waitlist</Button>
+          onClick={() => subscriberRef.current?.scrollIntoView({ behavior: "smooth" })}
+        >
+          Join Waitlist
+        </Button>
       </Flex>
       
 
@@ -243,7 +250,9 @@ function Main() {
           hub with your most sensitive <Box display={["block", "block", "none", "none"]} /> information.
         </Text>
 
-        <AddSubscriber />
+        <Box ref={subscriberRef}>
+          <AddSubscriber />
+        </Box>
       </Box>
 
     </Container>
