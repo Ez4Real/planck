@@ -1,4 +1,6 @@
+import { CustomProvider } from "@/components/ui/provider"
 import { Outlet, createFileRoute } from "@tanstack/react-router"
+import { system } from "@/theme"
 
 export const Route = createFileRoute("/_auth_layout")({
   component: AuthLayout,
@@ -6,10 +8,8 @@ export const Route = createFileRoute("/_auth_layout")({
 
 function AuthLayout() {
   return (
-    // <Provider theme={system}>
-    <>
+    <CustomProvider theme={system}>
       <Outlet />
-    </>
-    // </Provider>
+    </CustomProvider>
   )
 }

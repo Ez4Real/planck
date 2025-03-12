@@ -3,6 +3,8 @@ import "../index.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import CookiesDialog from "@/components/CookiesDialog"
+import { CustomProvider } from "@/components/ui/provider"
+import { main } from "@/theme"
 
 export const Route = createFileRoute("/_main_layout")({
   component: MainLayout,
@@ -10,13 +12,11 @@ export const Route = createFileRoute("/_main_layout")({
 
 function MainLayout() {
   return (
-    // <div className="main-layout">
-    <>
+    <CustomProvider theme={main}>
       <Header />
       <Outlet />
       <Footer />
       <CookiesDialog />
-    </>
-    // </div>
+    </CustomProvider>
   )
 }

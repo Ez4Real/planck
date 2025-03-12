@@ -1,5 +1,6 @@
 import { TermsOfServiceItem } from "@/components/Common/TermsOfServiceItem"
 import { TermsOfServiceTitle } from "@/components/Common/TermsOfServiceTitle"
+import { useColorModeValue } from "@/components/ui/color-mode"
 import { Box, Container, Heading, List, Separator, Text } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import { Link as RouterLink } from "@tanstack/react-router"
@@ -10,9 +11,11 @@ export const Route = createFileRoute("/_main_layout/terms-of-service")({
 
 
 function TermsOfService() {
+  const mainColor = useColorModeValue("ui.dark", "ui.darkMuted")
+  const mutedTextColor = useColorModeValue("ui.muted", "ui.darkMuted")
   return (
     <Container
-      px={["16px", "42px", "42px", "42px"]}
+      p={["0 16px 37px", "4px 42px 393px", "4px 42px 393px", "4px 42px 393px"]}
     >
       <Heading
         as="h2"
@@ -37,6 +40,7 @@ function TermsOfService() {
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt={["12px", "24px", "24px", "24px"]}
+          color={mutedTextColor}
         >Welcome! We're glad you're interested in Planck Technologies, Inc.
           ("Planck AI," "we," or "us"). This document covers our website www.planckai.io,
           software, and related services (collectively, the "Service"). These Terms and Conditions,
@@ -45,10 +49,12 @@ function TermsOfService() {
             className="link-footer"
             to="/privacy-policy"
             hash="root"
-          > <span style={{ color: "#131313", fontSize: "16px" }}>(https://planckai.io/privacy)</span>
-          </RouterLink>
-          ,form a legally binding agreement
-          between you and Planck AI.
+          > <Text
+              as={"span"}
+              fontSize={["12px", "16px", "16px", "16px"]}
+              color={mutedTextColor}
+              >(https://planckai.io/privacy)</Text>
+          </RouterLink>, form a legally binding agreement between you and Planck AI.
         </Text>
 
         <Text
@@ -61,6 +67,7 @@ function TermsOfService() {
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt="16px"
+          color={mutedTextColor}
         >When you click "I Accept," sign an order form referencing these terms, or use our Service, you're agreeing to these terms. If you're using the Service for an organization that has a separate agreement with us, that agreement takes precedence if there's any conflict with these terms.
         </Text>
       </Box>
@@ -70,6 +77,7 @@ function TermsOfService() {
           fontSize={["13px", "16px", "16px", "16px"]}
           lineHeight={["16px", "22px", "22px", "22px"]}
           mt={["16px", "36px", "36px", "36px"]}
+          
         >
           <Text
             fontSize={["13px", "18px", "18px", "18px"]}
@@ -83,7 +91,7 @@ function TermsOfService() {
       <Separator
         mt={["32px", "42px", "42px", "42px"]}
         mb={["24px", "42px", "42px", "42px"]}
-        borderColor="black"
+        borderColor={mainColor}
       />
 
       <Box maxW={["365px", "1040px", "1040px", "1040px"]}>
@@ -113,7 +121,7 @@ function TermsOfService() {
           ].map((point, index) => (
             <List.Item
               key={index}
-              _marker={{ color: "ui.dark" }}
+              _marker={{ color: mainColor }}
             >{point}</List.Item>
           ))}
         </List.Root>

@@ -1,4 +1,5 @@
 import AddSubscriber from "@/components/Subscribers/AddSubscriber";
+import { useColorModeValue } from "@/components/ui/color-mode";
 import {
   Box,
   Button,
@@ -16,21 +17,23 @@ export const Route = createFileRoute("/_main_layout/")({
 
 
 function Main() {
+  const horizontalBarBgColor = useColorModeValue("ui.dark", "ui.darkMuted")
+  const horizontalBarTextColor = useColorModeValue("ui.darkMuted", "ui.dark")
+  const mutedTextColor = useColorModeValue("ui.muted", "ui.darkMuted")
   return (
     <Container
       p={["0 21px", "0 21px", "0 21px", "0 54px"]}
-      pt={["54px", "54px", "140px", "140px"]}
+      pt={["84px", "84px", "140px", "140px"]}
     >
       <Text
         as="h1"
-        color="ui.dark"
         fontSize={["36px", "58px", "58px"]}
         lineHeight={["46px", "73px", "73px"]}
         fontWeight="500"
         textAlign="center"
       >Intelligence. Privacy. Simplicity.</Text>
       <Text
-        color="ui.muted"
+        color={mutedTextColor}
         fontSize={["12px", "20px", "20px"]}
         lineHeight={["15px", "25px", "25px"]}
         textAlign="center"
@@ -42,7 +45,7 @@ function Main() {
       </Text>
       <Flex
         justifyContent="center"
-        pt={["46px", "46px", "60px", "60px"]}
+        pt={["46px", "46px", "80px", "80px"]}
       >
         <Button
           fontSize={["12px", "12px", "16px", "16px"]}
@@ -64,9 +67,8 @@ function Main() {
         <Text
           fontSize={["32px", "32px", "58px", "58px"]}
           mb={["16px", "16px", "16px", "33px"]}
-          lineHeight={["40px", "40px", "73px"]}
+          lineHeight={["40px", "40px", "72px"]}
           as="h2"
-          color="ui.dark"
           fontWeight="500"
           textAlign="center"
         >Magical. <Box display={["block", "block", "none", "none"]} /> Yet Practical.</Text>
@@ -85,7 +87,6 @@ function Main() {
               fontSize={["24px", "24px", "36px"]}
               mb={["8px", "8px", "8px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
-              color="ui.dark"
               fontWeight="500"
               textIndent="5px"
               lineHeight={["", "", "45px"]}
@@ -93,7 +94,7 @@ function Main() {
               Intuitive
             </Text>
             <Text
-              color="ui.muted"
+              color={mutedTextColor}
               fontSize={["12px", "12px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
             >
@@ -112,7 +113,6 @@ function Main() {
               fontSize={["24px", "24px", "36px"]}
               mb={["8px", "8px", "8px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
-              color="ui.dark"
               fontWeight="500"
               textIndent="5px"
               lineHeight={["", "", "45px"]}
@@ -121,7 +121,7 @@ function Main() {
             </Text>
 
             <Text
-              color="ui.muted"
+              color={mutedTextColor}
               fontSize={["12px", "12px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
             >
@@ -145,7 +145,6 @@ function Main() {
               fontSize={["24px", "24px", "36px"]}
               mb={["8px", "8px", "8px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
-              color="ui.dark"
               fontWeight="500"
               textIndent="5px"
               lineHeight={["", "", "45px"]}
@@ -154,7 +153,7 @@ function Main() {
             </Text>
 
             <Text
-              color="ui.muted"
+              color={mutedTextColor}
               fontSize={["12px", "12px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
             >
@@ -173,7 +172,6 @@ function Main() {
               fontSize={["24px", "24px", "36px"]}
               mb={["8px", "8px", "8px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
-              color="ui.dark"
               fontWeight="500"
               textIndent="5px"
               lineHeight={["", "", "45px"]}
@@ -182,7 +180,7 @@ function Main() {
             </Text>
 
             <Text
-              color="ui.muted"
+              color={mutedTextColor}
               fontSize={["12px", "12px", "16px"]}
               p={["0 11px", "0 11px", "0 11px", "0"]}
             >
@@ -193,18 +191,19 @@ function Main() {
 
         </HStack>
       </Box>
+
       <Box
         position="relative"
+        zIndex={0}
       >
         <Box
           pt="18px"
           pb="17px"
-          mb={["101px", "101px", "120px", "120px",]}
+          mb={["101px", "101px", "120px", "120px"]}
           fontSize={["32px", "32px", "58px"]}
           lineHeight={["40px", "40px", "73px"]}
           fontWeight="500"
-          color="ui.light"
-          bg="ui.dark"
+          color={horizontalBarTextColor}
           textAlign="center"
           _after={{
             content: '""',
@@ -215,15 +214,16 @@ function Main() {
             width: "100vw",
             top: "0",
             height: "100%",
-            background: "ui.dark",
-            zIndex: "-1",
+            bg: horizontalBarBgColor,
+            zIndex: "-1"
           }}
-        >Your Data. <Box display={["block", "block", "none", "none"]} /> Your Control.</Box>
+        ><Box>Your Data. <Box display={["block", "none", "none", "none"]}
+           />Your Control.</Box>
+         </Box>
       </Box>
 
       <Box>
         <Text
-          color="ui.dark"
           fontSize={["32px", "32px", "58px"]}
           fontWeight="500"
           lineHeight={["40px", "40px", "73px"]}
@@ -232,7 +232,7 @@ function Main() {
         </Text>
 
         <Text
-          color="ui.muted"
+          color={mutedTextColor}
           textAlign="center"
           mt={["12px", "12px", "28px"]}
           mb={["44px", "44px", "63px"]}

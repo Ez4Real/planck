@@ -1,5 +1,6 @@
 import { PrivacyPolicyItem } from "@/components/Common/PrivacyPolicyItem"
 import { PrivacyPolicyListItem } from "@/components/Common/PrivacyPolicyListItem"
+import { useColorModeValue } from "@/components/ui/color-mode"
 import { Box, Container, Heading, List, Text } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 
@@ -8,10 +9,10 @@ export const Route = createFileRoute("/_main_layout/privacy-policy")({
 })
 
 function PrivacyPolicy() {
-
+  const mutedTextColor = useColorModeValue("ui.muted", "ui.darkHardMuted")
   return (
     <Container
-      p={["18px 21px 206px 16px", "4px 42px 393px", "4px 42px 393px", "4px 42px 393px",]}
+      p={["0 16px 37px", "4px 42px 393px", "4px 42px 393px", "4px 42px 393px",]}
     >
       <Heading
         as="h5"
@@ -28,7 +29,7 @@ function PrivacyPolicy() {
           
         >Effective Date: February 19, 2025</Text>
         <Text
-          color="ui.muted"
+          color={mutedTextColor}
           fontSize={["12px", "16px", "16px", "16px"]}
           lineHeight={["15px", "20px", "20px", "20px"]}
           mt="16px"
@@ -201,7 +202,7 @@ function PrivacyPolicy() {
             fontWeight="600"
           >What are Cookies?</Text>
           <Text
-            color="ui.muted"
+            color={mutedTextColor}
 
             lineHeight={["15px", "20px", "20px", "20px"]}
             fontSize={["12px", "16px", "16px", "16px"]}
@@ -218,14 +219,14 @@ function PrivacyPolicy() {
             fontWeight="600"
           >Types of Cookies We Use:</Text>
           <Text
-            color="ui.muted"
+            color={mutedTextColor}
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt={["12px", "16px", "16px", "16px"]}
           >We use the following types of cookies on our Website:
           </Text>
           <Text
-            color="ui.muted"
+            color={mutedTextColor}
 
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
@@ -245,7 +246,7 @@ function PrivacyPolicy() {
             fontWeight="600"
           >12. Contact Us</Text>
           <Text
-            color="ui.muted"
+            color={mutedTextColor}
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt="16px"
@@ -257,7 +258,7 @@ function PrivacyPolicy() {
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt="12px"
           >Email: <Text
-            color="ui.muted"
+            color={mutedTextColor}
             as="span"
             textDecoration="underline"
             fontWeight="400"
@@ -266,12 +267,12 @@ function PrivacyPolicy() {
             </Text>
           </Text>
           <Text mt="8px"
-            color="ui.muted"
+            color={mutedTextColor}
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
           >Vishal Rai, Sudarshan Bhide</Text>
           <List.Root
-            color="ui.muted"
+            color={mutedTextColor}
             fontSize={["12px", "16px", "16px", "16px"]}
             lineHeight={["15px", "20px", "20px", "20px"]}
             mt="16px"
@@ -279,7 +280,7 @@ function PrivacyPolicy() {
             listStyleType="disc"
           >
             <List.Item
-              _marker={{ color: "ui.muted" }}
+              _marker={{ color: mutedTextColor }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >
@@ -290,17 +291,17 @@ function PrivacyPolicy() {
               </a>
             </List.Item>
             <List.Item
-              _marker={{ color: "ui.muted" }}
+              _marker={{ color: mutedTextColor}}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >EU residents: File complaints with your local Data Protection Authority (DPA).</List.Item>
             <List.Item
-              _marker={{ color: "ui.muted" }}
+              _marker={{ color: mutedTextColor }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >Indian residents: Contact the Data Protection Board of India.</List.Item>
             <List.Item
-              _marker={{ color: "ui.muted" }}
+              _marker={{ color: mutedTextColor }}
               fontSize={["12px", "16px", "16px", "16px"]}
               lineHeight={["15px", "28px", "28px", "28px"]}
             >California residents: Submit CCPA/CPRA requests via the contact details above.</List.Item>

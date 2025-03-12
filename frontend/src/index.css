@@ -2,12 +2,13 @@ body {
     font-size: 1rem;
 }
 
-/* Global Scrollbar styles */
 
 #root {
     overflow-x: hidden;
 }
 
+
+/* Global Scrollbar styles */
 ::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
@@ -17,5 +18,5 @@ body {
     border-radius: 24px;
 }
 ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: transparent;
 }

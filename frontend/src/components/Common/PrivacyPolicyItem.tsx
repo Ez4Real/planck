@@ -1,4 +1,5 @@
 import { Box, Text } from "@chakra-ui/react"
+import { useColorModeValue } from "../ui/color-mode"
 
 interface PrivacyPolicyItemProps {
   number: string
@@ -11,6 +12,7 @@ export const PrivacyPolicyItem = ({
     title,
     description
 }: PrivacyPolicyItemProps) => {
+  const mutedTextColor = useColorModeValue("ui.muted", "ui.darkHardMuted")
   return (
     <Box mt="42px">
       <Text
@@ -20,7 +22,7 @@ export const PrivacyPolicyItem = ({
         mb={["12px", "16px", "16px", "16px"]}
       >{number}. {title}</Text>
       <Text
-        color="ui.muted"
+        color={mutedTextColor}
         fontSize={["12px", "16px", "16px", "16px"]}
         lineHeight={["15px", "20px", "20px", "20px"]}
         whiteSpace="pre-line" 
