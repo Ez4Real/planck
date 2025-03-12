@@ -38,7 +38,7 @@ const AddSubscriber = () => {
         requestBody: data
       }),
     onSuccess: () => {
-      showSuccessToast("Product created successfully.")
+      showSuccessToast("You have joined the wishlist!")
       reset()
     },
     onError: (err: ApiError) => {

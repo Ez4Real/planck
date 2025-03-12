@@ -53,7 +53,6 @@ function SubscribersTable() {
 
   const setPage = (page: number) =>
     navigate({
-      // search: (prev: { [key: string]: string }) => ({ ...prev, page }),
       search: (prev: { [key: string]: number }) => ({ ...prev, page }),
     })
 
@@ -132,7 +131,7 @@ function SubscribersTable() {
                   truncate
                   maxWidth="30%"
                 >
-                  {new Date(subscriber.created_at).toLocaleString()}
+                  {new Date(subscriber.created_at as string).toLocaleString()}
                 </Table.Cell>
                 <Table.Cell
                   color={!subscriber.location ? "ui.dim" : "inherit"}

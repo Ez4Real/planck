@@ -71,8 +71,7 @@ export const getUserCoordinates = (): Promise<UserCoordinates> => {
           longitude: position.coords.longitude,
         }
         resolve(coords)
-      },
-      (error) => reject(error)
+      }
     )
   })
 }
