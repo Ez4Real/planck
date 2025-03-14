@@ -12,7 +12,7 @@ function PrivacyPolicy() {
   const mutedTextColor = useColorModeValue("ui.muted", "ui.darkHardMuted")
   return (
     <Container
-      p={["0 16px 37px", "4px 42px 393px", "4px 42px 393px", "4px 42px 393px",]}
+      p={["0 16px 37px", "4px 42px 393px", "4px 42px 393px", "4px 42px 393px"]}
     >
       <Heading
         as="h5"

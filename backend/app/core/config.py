@@ -120,7 +120,7 @@ class Settings(BaseSettings):
 
         return self
 
-    UPLOAD_DIR: Path = Path("uploads/productImages")
+    UPLOAD_DIR: Path = Path("uploads/exports")
     @model_validator(mode="after")
     def _ensure_upload_dir_exists(self) -> Self:
         """Ensure the upload directory exists."""

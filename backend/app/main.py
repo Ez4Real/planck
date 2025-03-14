@@ -30,5 +30,5 @@ if settings.all_cors_origins:
         allow_headers=["*"],
     )
 
-# app.mount("/media", StaticFiles(directory="./uploads"), name="media")
+# app.mount("/uploads", StaticFiles(directory="./uploads"), name="uploads")
 app.include_router(api_router, prefix=settings.API_V1_STR)

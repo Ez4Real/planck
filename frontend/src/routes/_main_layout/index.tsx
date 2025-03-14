@@ -22,7 +22,8 @@ function Main() {
   const mutedTextColor = useColorModeValue("ui.muted", "ui.darkMuted")
   const magicalBlockBorderColor = useColorModeValue("ui.muted", "ui.darkHardMuted")
   const magicalSeparatColor = useColorModeValue("ui.magicalOpacityBorder", "ui.darkHardMuted")
-
+  const boxSeparatorBgColor = [magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]
+  
   const subscriberRef = useRef<HTMLDivElement | null>(null);
 
   return (
@@ -68,7 +69,7 @@ function Main() {
         p={["16px 0", "16px 0", "16px 0", "31px 40px 55px"]}
         m={["101px 0", "120px 0"]}
         border="1px solid"
-        borderColor={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
+        borderColor={boxSeparatorBgColor}
         borderRadius="8px"
         boxShadow="4px 8px 9px rgba(0, 0, 0, 0.05)"
       >
@@ -110,7 +111,7 @@ function Main() {
             </Text>
 
             <Box
-              background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
+              background={boxSeparatorBgColor}
               w="100%"
               h="1px"
               m={["16px 0", "16px 0", "16px 0", "32px 0"]}
@@ -139,7 +140,7 @@ function Main() {
           </Flex>
 
           <Box
-            background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
+            background={boxSeparatorBgColor}
             w={["100%", "100%", "100%", "1px"]}
             h={["1px", "1px", "1px", "282px"]}
             m={["16px 0", "16px 0", "16px 0", "0 57px"]}
@@ -169,7 +170,7 @@ function Main() {
             </Text>
 
             <Box
-              background={[magicalSeparatColor, magicalSeparatColor, magicalSeparatColor, magicalBlockBorderColor]}
+              background={boxSeparatorBgColor}
               w="100%"
               h="1px"
               m={["16px 0", "16px 0", "16px 0", "32px 0"]}

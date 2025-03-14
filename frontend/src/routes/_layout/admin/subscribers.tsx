@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/pagination.tsx"
 import { useEffect, useRef } from "react"
 import { useColorModeValue } from "@/components/ui/color-mode"
+import ExportSubscriber from "@/components/Subscribers/ExportSubscriber"
 
 const subscribersSearchSchema = z.object({
   page: z.number().catch(1),
@@ -169,8 +170,9 @@ function Subscribers() {
         pb={4}
         pl={[10, 0]}
       >
-        Subscribers
+        
       </Heading>
+      <ExportSubscriber  />
       <SubscribersTable />
     </Container>
   )

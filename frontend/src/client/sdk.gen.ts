@@ -37,6 +37,8 @@ import type {
   SubscribersReadSubscriberResponse,
   SubscribersDeleteSubscriberData,
   SubscribersDeleteSubscriberResponse,
+  SubscribersExportSubscribersData,
+  SubscribersExportSubscribersResponse,
   UsersReadUsersData,
   UsersReadUsersResponse,
   UsersCreateUserData,
@@ -443,6 +445,28 @@ export class SubscribersService {
       path: {
         id: data.id,
       },
+      errors: {
+        422: "Validation Error",
+      },
+    })
+  }
+
+  /**
+   * Export Subscribers
+   * Export subscribers data to CSV.
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static exportSubscribers(
+    data: SubscribersExportSubscribersData,
+  ): CancelablePromise<SubscribersExportSubscribersResponse> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/api/v1/subscribers/export-to-csv",
+      body: data.requestBody,
+      mediaType: "application/json",
       errors: {
         422: "Validation Error",
       },

@@ -1,15 +1,18 @@
 import uuid
 from typing import Any
-
+import csv
+import io
+from fastapi.responses import StreamingResponse
 from fastapi import APIRouter, HTTPException
 from sqlmodel import func, select
 
 from app.api.deps import CurrentUser, SessionDep
-from app.models import Subscriber, SubscriberCreate, SubscriberPublic, SubscribersPublic, Message
+from app.models import Subscriber, SubscriberCreate, SubscribersExport, \
+    SubscriberPublic, SubscribersPublic, Message
 from app.utils import get_user_location_by_coordinates
+from app.core.config import settings
 
 router = APIRouter(prefix="/subscribers", tags=["subscribers"])
-
 
 @router.get("/", response_model=SubscribersPublic)
 def read_subscribers(
@@ -19,10 +22,10 @@ def read_subscribers(
     Retrieve subscribers.
     """
     if current_user.is_superuser:
-        count_statement = select(func.count()).select_from(Subscriber)
-        count = session.exec(count_statement).one()
-        statement = select(Subscriber).offset(skip).limit(limit)
-        subscribers = session.exec(statement).all()
+      count_statement = select(func.count()).select_from(Subscriber)
+      count = session.exec(count_statement).one()
+      statement = select(Subscriber).offset(skip).limit(limit).order_by(Subscriber.created_at.desc())
+      subscribers = session.exec(statement).all()
 
     return SubscribersPublic(data=subscribers, count=count)
 
@@ -61,6 +64,37 @@ def create_subscriber(
     session.commit()
     session.refresh(subscriber)
     return subscriber
+
+
+@router.post("/export-to-csv", response_class=StreamingResponse)
+def export_subscribers(
+    *, session: SessionDep,
+    current_user: CurrentUser,
+    date_range: SubscribersExport,
+) -> Any:
+    """
+    Export subscribers data to CSV.
+    """
+    subscribers = session.query(Subscriber).filter(
+        Subscriber.created_at >= date_range.date_from,
+        Subscriber.created_at <= date_range.date_to
+    ).all()
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["ID", "Email", "Date | Time", "Location"])
+
+    for sub in subscribers:
+        writer.writerow([sub.id, sub.email, sub.created_at, sub.location])
+        
+    output.seek(0)
+            
+    response = StreamingResponse(
+        output,
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=subscribers.csv"}
+    )
+    return response
 
 
 @router.delete("/{id}")

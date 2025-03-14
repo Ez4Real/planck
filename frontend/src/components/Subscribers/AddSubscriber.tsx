@@ -12,7 +12,6 @@ import { SubscribersService, type SubscriberCreate } from "@/client"
 import type { ApiError } from "@/client/core/ApiError"
 import useCustomToast from "@/hooks/useCustomToast"
 import { getUserCoordinates, handleError } from "@/utils"
-import { useColorModeValue } from "../ui/color-mode"
 
 const AddSubscriber = () => {
   const { showSuccessToast } = useCustomToast()
@@ -60,9 +59,6 @@ const AddSubscriber = () => {
     mutation.mutate(processedData)
   }
 
-  // const inputColor = useColorModeValue("ui.darkMuted", "ui.muted")
-  // const inputBorderColor = useColorModeValue("ui.muted", "ui.darkMuted")
-
   return (
     <Flex
       as="form"
@@ -83,8 +79,6 @@ const AddSubscriber = () => {
           })}
           type="text"
           h={["32px", "32px", "36px"]}
-          // borderColor={inputBorderColor}
-          // color={inputColor}
         />
       </Field.Root>
       <Button

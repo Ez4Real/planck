@@ -75,3 +75,21 @@ export const getUserCoordinates = (): Promise<UserCoordinates> => {
     )
   })
 }
+
+
+export const convertStringToDate = (dateStr: string): Date => {
+  const [datePart, timePart] = dateStr.split(', ')
+  const [day, month, year] = datePart.split('.')
+
+  return new Date(`${year}-${month}-${day}T${timePart}`)
+}
+
+
+export const downloadFromBlob = async (blob: Blob, filename: string) => {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+};

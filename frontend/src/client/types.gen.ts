@@ -67,6 +67,11 @@ export type SubscriberPublic = {
   id: string
 }
 
+export type SubscribersExport = {
+  date_from: string
+  date_to: string
+}
+
 export type SubscribersPublic = {
   data: Array<SubscriberPublic>
   count: number
@@ -235,6 +240,12 @@ export type SubscribersDeleteSubscriberData = {
 }
 
 export type SubscribersDeleteSubscriberResponse = Message
+
+export type SubscribersExportSubscribersData = {
+  requestBody: SubscribersExport
+}
+
+export type SubscribersExportSubscribersResponse = unknown
 
 export type UsersReadUsersData = {
   limit?: number

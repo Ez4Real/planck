@@ -86,12 +86,16 @@ class UserCoordinates(SQLModel):
     
 class SubscriberBase(SQLModel):
     email: EmailStr = Field(unique=True, index=True, max_length=255)
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc).replace(microsecond=0))
     location: str | None = Field(nullable=True, max_length=255)
 
 class SubscriberCreate(SQLModel):
     email: EmailStr = Field(unique=True, index=True, max_length=255)
     coordinates: UserCoordinates
+    
+class SubscribersExport(SQLModel):
+    date_from: datetime
+    date_to: datetime
     
 class Subscriber(SubscriberBase, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
