@@ -75,10 +75,11 @@ def export_subscribers(
     """
     Export subscribers data to CSV.
     """
-    subscribers = session.query(Subscriber).filter(
+    statement = select(Subscriber).filter(
         Subscriber.created_at >= date_range.date_from,
         Subscriber.created_at <= date_range.date_to
-    ).all()
+    )
+    subscribers = session.exec(statement).all()
     
     output = io.StringIO()
     writer = csv.writer(output)

@@ -1,0 +1,42 @@
+---
+deployment:
+  tasks:
+    # Set deployment paths
+    - export DEPLOYPATH=/home/plannxud/public_html/
+    - export BACKEND_PATH=/home/plannxud/planck/backend/
+    - export FRONTEND_PATH=/home/plannxud/planck/frontend/
+
+    - export ENVIRONMENT=production
+    - export DOMAIN=${{ secrets.DOMAIN_PRODUCTION }}
+    - export STACK_NAME=${{ secrets.STACK_NAME_PRODUCTION }}
+    - export SECRET_KEY=${{ secrets.SECRET_KEY }}
+    - export FIRST_SUPERUSER=${{ secrets.FIRST_SUPERUSER }}
+    - export FIRST_SUPERUSER_PASSWORD=${{ secrets.FIRST_SUPERUSER_PASSWORD }}
+    - export SMTP_HOST=${{ secrets.SMTP_HOST }}
+    - export SMTP_USER=${{ secrets.SMTP_USER }}
+    - export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+    - export EMAILS_FROM_EMAIL=${{ secrets.EMAILS_FROM_EMAIL }}
+    - export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+    - export SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+
+    # Backend deployment
+    - echo "Deploying Backend..."
+    # - /bin/mkdir -p $BACKEND_PATH
+    # - /bin/cp -R backend/* $BACKEND_PATH
+    - source /home/plannxud/virtualenv/planck/backend/3.12/bin/activate
+    - cd $BACKEND_PATH
+    - uv venv .venv
+    - uv sync --pre
+    - alembic upgrade head  
+    # - systemctl restart backend.service
+
+    # Frontend deployment
+    - echo "Deploying Frontend..."
+    - /bin/mkdir -p $FRONTEND_PATH
+    - /bin/cp -R frontend/* $FRONTEND_PATH
+    - cd $FRONTEND_PATH && npm install
+    - cd $FRONTEND_PATH && npm run build
+    - /bin/cp -R $FRONTEND_PATH/dist/* $DEPLOYPATH
+
+    # Final cleanup
+    - echo "Deployment completed successfully!"
