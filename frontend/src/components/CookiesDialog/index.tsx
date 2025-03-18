@@ -31,10 +31,6 @@ const CookiesDialog = () => {
         closeOnEscape={false}
         defaultOpen={!isAccepted}
       >
-        <Dialog.Trigger asChild>
-          <Button variant="outline">Open Dialog</Button>
-        </Dialog.Trigger>
-
         <Portal>
           <Dialog.Backdrop />
           <Dialog.Positioner

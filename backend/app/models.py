@@ -35,13 +35,13 @@ class UpdatePassword(SQLModel):
 
 # Database model, database table inferred from class name
 class User(UserBase, table=True):
-    id: str = Field(default_factory=uuid.uuid4, primary_key=True, max_length=36)
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     hashed_password: str
     products: list["Product"] = Relationship(back_populates="owner", cascade_delete=True)
 
 # Properties to return via API, id is always required
 class UserPublic(UserBase):
-    id: str
+    id: uuid.UUID
 
 class UsersPublic(SQLModel):
     data: list[UserPublic]
@@ -63,17 +63,17 @@ class ProductUpdate(ProductBase):
 
 # Database model, database table inferred from class name
 class Product(ProductBase, table=True):
-    id: str = Field(default_factory=uuid.uuid4, primary_key=True, max_length=36)
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     title: str = Field(max_length=255)
-    owner_id: str = Field(
+    owner_id: uuid.UUID = Field(
         foreign_key="user.id", nullable=False, ondelete="CASCADE"
     )
     owner: User | None = Relationship(back_populates="products")
 
 # Properties to return via API, id is always required
 class ProductPublic(ProductBase):
-    id: str
-    owner_id: str = Field(max_length=36)
+    id: uuid.UUID
+    owner_id: uuid.UUID
 
 class ProductsPublic(SQLModel):
     data: list[ProductPublic]
@@ -98,10 +98,10 @@ class SubscribersExport(SQLModel):
     date_to: datetime
     
 class Subscriber(SubscriberBase, table=True):
-    id: str = Field(default_factory=uuid.uuid4, primary_key=True, max_length=36)
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
 
 class SubscriberPublic(SubscriberBase):
-    id: str
+    id: uuid.UUID
 
 class SubscribersPublic(SQLModel):
     data: list[SubscriberPublic]
