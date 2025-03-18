@@ -1,4 +1,3 @@
-import React from "react"
 import { Button, DialogTitle, Text } from "@chakra-ui/react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
