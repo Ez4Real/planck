@@ -19,8 +19,6 @@ import type {
   ProductsReadProductsResponse,
   ProductsCreateProductData,
   ProductsCreateProductResponse,
-  ProductsReadProductsByCategoryData,
-  ProductsReadProductsByCategoryResponse,
   ProductsReadProductData,
   ProductsReadProductResponse,
   ProductsUpdateProductData,
@@ -233,29 +231,6 @@ export class ProductsService {
       url: "/api/v1/products/",
       body: data.requestBody,
       mediaType: "application/json",
-      errors: {
-        422: "Validation Error",
-      },
-    })
-  }
-
-  /**
-   * Read Products By Category
-   * Retrieve products by category.
-   * @param data The data for the request.
-   * @param data.category
-   * @returns ProductsPublic Successful Response
-   * @throws ApiError
-   */
-  public static readProductsByCategory(
-    data: ProductsReadProductsByCategoryData,
-  ): CancelablePromise<ProductsReadProductsByCategoryResponse> {
-    return __request(OpenAPI, {
-      method: "GET",
-      url: "/api/v1/products/category/{category}",
-      path: {
-        category: data.category,
-      },
       errors: {
         422: "Validation Error",
       },

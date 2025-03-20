@@ -1,8 +1,8 @@
 """Initial migration
 
-Revision ID: 4fb2be553569
+Revision ID: 818a828cbcea
 Revises: 
-Create Date: 2025-03-15 17:22:46.326692
+Create Date: 2025-03-19 23:06:38.177650
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import sqlmodel.sql.sqltypes
 
 
 # revision identifiers, used by Alembic.
-revision = '4fb2be553569'
+revision = '818a828cbcea'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,7 +23,7 @@ def upgrade():
     sa.Column('email', sqlmodel.sql.sqltypes.AutoString(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('location', sqlmodel.sql.sqltypes.AutoString(length=255), nullable=True),
-    sa.Column('id', sa.String(length=36), nullable=False),
+    sa.Column('id', sa.Uuid(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_subscriber_email'), 'subscriber', ['email'], unique=True)
@@ -32,16 +32,16 @@ def upgrade():
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.Column('is_superuser', sa.Boolean(), nullable=False),
     sa.Column('full_name', sqlmodel.sql.sqltypes.AutoString(length=255), nullable=True),
-    sa.Column('id', sa.String(length=36), nullable=False),
+    sa.Column('id', sa.Uuid(), nullable=False),
     sa.Column('hashed_password', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_user_email'), 'user', ['email'], unique=True)
     op.create_table('product',
     sa.Column('description', sqlmodel.sql.sqltypes.AutoString(length=255), nullable=True),
-    sa.Column('id', sa.String(length=36), nullable=False),
+    sa.Column('id', sa.Uuid(), nullable=False),
     sa.Column('title', sqlmodel.sql.sqltypes.AutoString(length=255), nullable=False),
-    sa.Column('owner_id', sa.String(length=36), nullable=False),
+    sa.Column('owner_id', sa.Uuid(), nullable=False),
     sa.ForeignKeyConstraint(['owner_id'], ['user.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )

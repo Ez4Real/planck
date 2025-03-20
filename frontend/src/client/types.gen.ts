@@ -183,12 +183,6 @@ export type ProductsCreateProductData = {
 
 export type ProductsCreateProductResponse = ProductPublic
 
-export type ProductsReadProductsByCategoryData = {
-  category: string
-}
-
-export type ProductsReadProductsByCategoryResponse = ProductsPublic
-
 export type ProductsReadProductData = {
   id: string
 }
