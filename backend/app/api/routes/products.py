@@ -110,7 +110,6 @@ async def upload_images(
     """
     Upload multiple product images and save them to local storage.
     """
-    # !!!!!
     image_urls = [
         save_image_to_local(image, settings.UPLOAD_DIR) for image in images
     ]

@@ -46,9 +46,9 @@ def authenticate(*, session: Session, email: str, password: str) -> User | None:
     return db_user
 
 
-def create_item(*, session: Session, item_in: ProductCreate, owner_id: uuid.UUID) -> Product:
-    db_item = Product.model_validate(item_in, update={"owner_id": owner_id})
-    session.add(db_item)
+def create_product(*, session: Session, product_in: ProductCreate, owner_id: uuid.UUID) -> Product:
+    db_product = Product.model_validate(product_in, update={"owner_id": owner_id})
+    session.add(db_product)
     session.commit()
-    session.refresh(db_item)
-    return db_item
+    session.refresh(db_product)
+    return db_product
