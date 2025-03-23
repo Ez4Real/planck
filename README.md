@@ -1,3 +1,6 @@
+## Created By
+This application was developed by Evgenij | Ez4Real(https://github.com/Ez4Real) with https://github.com/fastapi/full-stack-fastapi-template.git.
+
 # Full Stack FastAPI Template
 
 <a href="https://github.com/fastapi/full-stack-fastapi-template/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/fastapi/full-stack-fastapi-template/workflows/Test/badge.svg" alt="Test"></a>

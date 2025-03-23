@@ -13,11 +13,9 @@ from jinja2 import Template
 from jwt.exceptions import InvalidTokenError
 
 from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut
 
 from app.core import security
 from app.core.config import settings
-from app.models import UserCoordinates
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
