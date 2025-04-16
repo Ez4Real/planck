@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useMutation } from "@tanstack/react-query"
 import { FormProvider, type SubmitHandler, useForm } from "react-hook-form"
 
 import {
@@ -6,8 +6,11 @@ import {
   Button,
   DialogActionTrigger,
   DialogTitle,
+  Field,
   Flex,
+  Input,
   Text,
+  VStack,
 } from "@chakra-ui/react"
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa"
@@ -25,41 +28,25 @@ import {
   DialogRoot,
   DialogTrigger,
 } from "../ui/dialog"
-import SelectDate, { StringDateItem } from "../Common/SelectDate"
-
-
-function getSubscribersQueryOptions() {
-  return {
-    queryFn: () =>
-      SubscribersService.readSubscribers({ skip: 0, limit: 9999 }),
-        queryKey: ["subscribers"],
-  }
-}
 
 
 const ExportSubscriber = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const { data } = useQuery({
-    ...getSubscribersQueryOptions(),
-    placeholderData: (prevData) => prevData,
-  })
-
   const { showSuccessToast } = useCustomToast()
-  const [fromDate, setFromDate] = useState<StringDateItem>(undefined)
-  const [toDate, setToDate] = useState<StringDateItem>(undefined)
 
   const methods = useForm<SubscribersExport>({
     mode: "onBlur",
     criteriaMode: "all",
     defaultValues: {
-      date_from: fromDate,
-      date_to: toDate,
+      date_from: undefined,
+      date_to: undefined,
     },
   })
 
   const {
     handleSubmit,
+    register,
     reset,
     formState: { isSubmitting },
   } = methods
@@ -86,6 +73,10 @@ const ExportSubscriber = () => {
   })
 
   const onSubmit: SubmitHandler<SubscribersExport> = (data) => {
+    console.log(data);
+    console.log(typeof(data.date_from));
+    console.log(typeof(data.date_to));
+    
     mutation.mutate(data)
   }
 
@@ -121,26 +112,42 @@ const ExportSubscriber = () => {
               </DialogHeader>
               <DialogBody>
                 <Text mb={4}>Select Date | Time range to export subscribers.</Text>
-                <Flex
-                  direction={["column", "row", "row", "row"]}
-                  w="100%"
+                <VStack
                   gap={4}
                 >
-                  <SelectDate
-                    field_id="date_from"
-                    label="From"
-                    userDates={data?.data ?? []}
-                    dateValue={fromDate}
-                    setDateValue={setFromDate}
-                  />
-                  <SelectDate
-                    field_id="date_to"
-                    label="To"
-                    userDates={data?.data ?? []}
-                    dateValue={toDate}
-                    setDateValue={setToDate}
-                  />
-                </Flex>
+                  <Field.Root>
+                    <Field.Label>
+                      From <Field.RequiredIndicator />
+                    </Field.Label>
+                    <Input
+                      size='md'
+                      type='datetime-local'
+                      id="date_from"
+                      required
+                      {...register("date_from", {
+                        required: "Title is required.",
+                        setValueAs: (value) => value ? new Date(value) : null,
+                      })}
+                    />
+                  </Field.Root>
+
+                  <Field.Root>
+                    <Field.Label>
+                      To <Field.RequiredIndicator />
+                    </Field.Label>
+                    <Input
+                      size='md'
+                      type='datetime-local'
+                      id="date_to"
+                      required
+                      {...register("date_to", {
+                        required: "Title is required.",
+                        setValueAs: (value) => value ? new Date(value) : null,
+                      })}
+                      
+                    />
+                  </Field.Root> 
+                </VStack>
               </DialogBody>
             </Box>
 
